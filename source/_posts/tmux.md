@@ -34,6 +34,20 @@ tmux是终端复用命令行工具，可以在一个terminal下开多个窗口�
 
 - `d`: 退出tmux
 
+另外还有session操作
+
+`tmux a`：恢复至上一个会话
+
+`tmux ls`：列出目前的会话
+
+`tmux a -t [session_name]`：打开特定session，默认命名是012这些
+
+`tmux kill-session -t [session_name]`：关闭指定session
+
+`tmux new -s [session_name]`：打开一个新的命名的session
+
+`tmux kill-server`：删除所有session
+
 
 
 [十分钟学会tmux](https://www.cnblogs.com/kaiye/p/6275207.html)

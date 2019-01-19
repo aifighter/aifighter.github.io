@@ -1,8 +1,6 @@
 ---
 title: Hello World
 comments: true
-categories: welcome
-tags: test
 mathjax: true
 date: 2018-09-12 00:00:00
 ---

@@ -34,3 +34,11 @@ description: 每天学习一个实用的linux命令，争取日更
 
 [每天一个linux命令(1)：ls命令](https://www.cnblogs.com/peida/archive/2012/10/23/2734829.html)
 
+### cd - 20180120
+
+大部分操作都知道，下面这个小技巧很实用
+
+`cd -`：回到上一个目录
+
+[每天一个linux命令(2)：cd命令](https://www.cnblogs.com/peida/archive/2012/10/24/2736501.html)
+

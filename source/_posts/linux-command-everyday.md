@@ -10,7 +10,7 @@ tags:
 description: 每天学习一个实用的linux命令，争取日更
 ---
 
-### 20180119. ls 
+### 20180119: ls 
 
 只记录几个看着比较有用的参数
 
@@ -36,11 +36,19 @@ description: 每天学习一个实用的linux命令，争取日更
 
 ---
 
-### 20180120. cd
+### 20180120: cd
 
 大部分操作都知道，下面这个小技巧很实用
 
 `cd -`：回到上一个目录
 
 [每天一个linux命令(2)：cd命令](https://www.cnblogs.com/peida/archive/2012/10/24/2736501.html)
+
+---
+
+### 20180121: pwd
+
+一般不加任何参数
+
+[每天一个linux命令（3）：pwd命令](https://www.cnblogs.com/peida/archive/2012/10/24/2737730.html)
 

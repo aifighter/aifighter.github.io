@@ -52,3 +52,17 @@ description: 每天学习一个实用的linux命令，争取日更
 
 [每天一个linux命令（3）：pwd命令](https://www.cnblogs.com/peida/archive/2012/10/24/2737730.html)
 
+---
+
+### 20180122: mkdir
+
+创建目录
+
+`-p`：可以输入一个完整路径，路径中不存在的文件夹都会创建
+
+`-v`：创建的时候输出信息
+
+`-m`：创建的时候设置权限，类似chmod
+
+[每天一个linux命令（4）：mkdir命令](https://www.cnblogs.com/peida/archive/2012/10/25/2738271.html)
+

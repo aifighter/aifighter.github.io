@@ -66,3 +66,19 @@ description: 每天学习一个实用的linux命令，争取日更
 
 [每天一个linux命令（4）：mkdir命令](https://www.cnblogs.com/peida/archive/2012/10/25/2738271.html)
 
+---
+
+### 20180123: rm
+
+删除文件或目录
+
+`-f`：force，不给出提示，忽略不存在的文件
+
+`-r`：recursive删除，会删除目录
+
+`-i`：交互式删除，会给出提示
+
+`-v`：显示详细步骤
+
+[每天一个linux命令（5）：rm 命令](https://www.cnblogs.com/peida/archive/2012/10/26/2740521.html)
+

@@ -22,18 +22,13 @@
 </ul>
 <h3 id="会话操作"><a href="#会话操作" class="headerlink" title="会话操作"></a>会话操作</h3><p>另外还有session操作</p>
 <ul>
-<li><p><code>tmux a</code>：恢复至上一个会话</p>
-</li>
-<li><p><code>tmux ls</code>：列出目前的会话</p>
-</li>
-<li><p><code>tmux a -t [session_name]</code>：打开特定session，默认命名是012这些</p>
-</li>
-<li><p><code>tmux kill-session -t [session_name]</code>：关闭指定session</p>
-</li>
-<li><p><code>tmux new -s [session_name]</code>：打开一个新的命名的session</p>
-</li>
-<li><p><code>tmux kill-server</code>：删除所有session</p>
-</li>
+<li><code>tmux a</code>：恢复至上一个会话</li>
+<li><code>tmux ls</code>：列出目前的会话</li>
+<li><code>tmux a -t [session_name]</code>：打开特定session，默认命名是012这些</li>
+<li><code>tmux kill-session -t [session_name]</code>：关闭指定session</li>
+<li><code>tmux new -s [session_name]</code>：打开一个新的命名的session</li>
+<li><code>tmux kill-server</code>：删除所有session</li>
+<li><code>$</code>：重命名当前会话</li>
 </ul>
 <h3 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h3><p>为了让tmux可以执行.zshrc中的设置，可以这样操作</p>
 <p><code>echo &quot;source ~/.zshrc&quot; &gt; ~/.profile</code></p>

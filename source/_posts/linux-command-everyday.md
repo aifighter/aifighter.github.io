@@ -82,3 +82,10 @@ description: 每天学习一个实用的linux命令，争取日更
 
 [每天一个linux命令（5）：rm 命令](https://www.cnblogs.com/peida/archive/2012/10/26/2740521.html)
 
+---
+
+### 20180124: rmdir
+
+用于删除一个空的目录
+
+[每天一个linux命令（6）：rmdir 命令](https://www.cnblogs.com/peida/archive/2012/10/27/2742076.html)

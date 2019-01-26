@@ -89,3 +89,22 @@ description: 每天学习一个实用的linux命令，争取日更
 用于删除一个空的目录
 
 [每天一个linux命令（6）：rmdir 命令](https://www.cnblogs.com/peida/archive/2012/10/27/2742076.html)
+
+---
+
+### 20180125: mv
+
+当第二个参数类型是文件时，mv命令完成文件重命名。
+
+当第二个参数是已存在的目录名称时，源文件或目录参数可以有多个，mv命令将各参数指定的源文件均移至目标目录中。
+
+[每天一个linux命令（7）：mv命令](https://www.cnblogs.com/peida/archive/2012/10/27/2743022.html)
+
+---
+
+### 20180126: cp
+
+`-n`：不要覆盖已存在的文件(使前面的 -i 选项失效)
+
+[每天一个linux命令（8）：cp 命令](https://www.cnblogs.com/peida/archive/2012/10/29/2744185.html)
+

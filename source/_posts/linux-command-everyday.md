@@ -98,6 +98,8 @@ description: 每天学习一个实用的linux命令，争取日更
 
 当第二个参数是已存在的目录名称时，源文件或目录参数可以有多个，mv命令将各参数指定的源文件均移至目标目录中。
 
+-u ：若目标文件已经存在，且 source 比较新，才会更新(update)
+
 [每天一个linux命令（7）：mv命令](https://www.cnblogs.com/peida/archive/2012/10/27/2743022.html)
 
 ---
@@ -107,4 +109,14 @@ description: 每天学习一个实用的linux命令，争取日更
 `-n`：不要覆盖已存在的文件(使前面的 -i 选项失效)
 
 [每天一个linux命令（8）：cp 命令](https://www.cnblogs.com/peida/archive/2012/10/29/2744185.html)
+
+---
+
+### 20180127: touch
+
+touch命令用来更改文件的时间戳，若文件不存在则创建文件
+
+`-t`：可以指定时间戳
+
+`touch -t 201211142234.50 log.log`
 

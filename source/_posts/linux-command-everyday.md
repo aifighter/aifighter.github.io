@@ -120,3 +120,16 @@ touch命令用来更改文件的时间戳，若文件不存在则创建文件
 
 `touch -t 201211142234.50 log.log`
 
+[每天一个linux命令（9）：touch 命令](https://www.cnblogs.com/peida/archive/2012/10/30/2745714.html)
+
+---
+
+### 20180128: cat
+
+cat 用于输出文件
+
+`cat a.txt b.txt`会在屏幕上将文件都print出来，配合`>,>>`使用可以实现合并文件的操作
+
+`-n`：加上行号
+
+[每天一个linux命令（10）：cat 命令](https://www.cnblogs.com/peida/archive/2012/10/30/2746968.html)

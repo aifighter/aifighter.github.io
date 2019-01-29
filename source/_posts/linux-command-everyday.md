@@ -133,3 +133,14 @@ cat 用于输出文件
 `-n`：加上行号
 
 [每天一个linux命令（10）：cat 命令](https://www.cnblogs.com/peida/archive/2012/10/30/2746968.html)
+
+---
+
+### 20180129: nl
+
+nl用于在给文件加上行号，并输出，支持的格式会比cat -n多一些。感觉用处不大
+
+`nl test.txt`
+
+[每天一个linux命令(11)：nl命令](https://www.cnblogs.com/peida/archive/2012/11/01/2749048.html)
+

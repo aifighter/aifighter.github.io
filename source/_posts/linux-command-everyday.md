@@ -144,3 +144,15 @@ nl用于在给文件加上行号，并输出，支持的格式会比cat -n多一
 
 [每天一个linux命令(11)：nl命令](https://www.cnblogs.com/peida/archive/2012/11/01/2749048.html)
 
+---
+
+### 20180130: more
+
+more命令也是用来查看文件的，可以支持翻页等操作
+
+似乎只要记住一种查看文件的方式就好了，不用记那么多
+
+[每天一个linux命令(12)：more命令](https://www.cnblogs.com/peida/archive/2012/11/02/2750588.html)
+
+
+

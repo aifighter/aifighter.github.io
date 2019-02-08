@@ -82,7 +82,7 @@ def list_all_files(path):
 
 if __name__=="__main__":
 
-    filesize = 0.1
+    filesize = 0.3
     source_path = "/Users/lxc/project/aifighter.github.io/origin_images"
     target_path = "/Users/lxc/project/aifighter.github.io/source/images"
     source_files = list_all_files(source_path)

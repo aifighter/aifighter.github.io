@@ -83,7 +83,7 @@ def list_all_files(path):
 if __name__=="__main__":
 
     filesize = 0.1
-    source_path = "/Users/lxc/project/aifighter.github.io/source/origin_images"
+    source_path = "/Users/lxc/project/aifighter.github.io/origin_images"
     target_path = "/Users/lxc/project/aifighter.github.io/source/images"
     source_files = list_all_files(source_path)
     target_files = [f.replace(source_path, target_path) for f in source_files]

@@ -10,7 +10,7 @@ tags:
 description: 使用oh-my-zsh，让terminal变爽
 ---
 
-![tmux](/images/oh-my-zsh.png)
+![oh-my-zsh](/images/oh-my-zsh.jpg)
 
 ```bash
 brew install wget

@@ -12,7 +12,7 @@ description: tmux命令行工具最简单使用攻略
 
 tmux是终端复用命令行工具，可以在一个terminal下开多个窗口。tmux的功能比较强大，这里我只记录了最少的功能。
 
-![tmux](/images/tmux.png)
+![tmux](/images/tmux.jpg)
 
 **tmux所有操作均在^b之后进行**(^是ctrl键)
 

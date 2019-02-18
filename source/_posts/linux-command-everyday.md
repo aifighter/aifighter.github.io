@@ -154,5 +154,18 @@ more命令也是用来查看文件的，可以支持翻页等操作
 
 [每天一个linux命令(12)：more命令](https://www.cnblogs.com/peida/archive/2012/11/02/2750588.html)
 
+---
 
+### 20190218: less
 
+less命令也是用来查看文件的
+
+也可以用管道的
+
+在less中，`/字符串`进行向后搜索，`/字符串`进行向前搜索
+
+例子：
+
+`history | less`
+
+[每天一个linux命令（13）：less 命令](https://www.cnblogs.com/peida/archive/2012/11/05/2754477.html)

@@ -169,3 +169,24 @@ less命令也是用来查看文件的
 `history | less`
 
 [每天一个linux命令（13）：less 命令](https://www.cnblogs.com/peida/archive/2012/11/05/2754477.html)
+
+---
+
+### 20190221: head
+
+`head -n 5 sample.txt`
+
+[每天一个linux命令（14）：head 命令](https://www.cnblogs.com/peida/archive/2012/11/06/2756278.html)
+
+---
+
+### 20190222: tail
+
+`tail -f sample.txt`
+
+`tail -n 5 sample.txt`
+
+-f 可以用来查看正在更新的日志
+
+[每天一个linux命令（15）：tail 命令](https://www.cnblogs.com/peida/archive/2012/11/07/2758084.html)
+

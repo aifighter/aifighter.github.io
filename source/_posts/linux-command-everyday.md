@@ -190,3 +190,25 @@ less命令也是用来查看文件的
 
 [每天一个linux命令（15）：tail 命令](https://www.cnblogs.com/peida/archive/2012/11/07/2758084.html)
 
+---
+
+### 20190223: which
+
+which命令的作用是，在PATH变量指定的路径中，搜索某个系统命令的位置，并且返回第一个搜索结果。
+
+`which pwd`
+
+[每天一个linux命令（16）：which命令](https://www.cnblogs.com/peida/archive/2012/11/08/2759805.html)
+
+---
+
+### 20190225: locate
+
+locate用来寻找文件，查找快速，查询的是一个数据库，但是内容不一定是最新的
+
+`locate xxx/xx.xx`
+
+相当于从一个拥有所有文件路径的数据库中匹配字符串，因此上面的xx可以是不完整的，也可以做一些简单通配符
+
+[每天一个linux命令（18）：locate 命令](https://www.cnblogs.com/peida/archive/2012/11/12/2765750.html)
+

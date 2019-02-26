@@ -85,6 +85,16 @@
 <p><code>locate xxx/xx.xx</code></p>
 <p>相当于从一个拥有所有文件路径的数据库中匹配字符串，因此上面的xx可以是不完整的，也可以做一些简单通配符</p>
 <p><a href="https://www.cnblogs.com/peida/archive/2012/11/12/2765750.html" target="_blank" rel="noopener">每天一个linux命令（18）：locate 命令</a></p>
+<hr>
+<h3 id="20190226-find-1"><a href="#20190226-find-1" class="headerlink" title="20190226: find(1)"></a>20190226: find(1)</h3><p>find命令用来搜索文件，基础格式为</p>
+<p><code>find path -options</code></p>
+<p>其中options中比较常用的为：</p>
+<p><code>-name</code> 用引号</p>
+<p><code>-perm</code> 加3个数字</p>
+<p><code>-user</code> 用户名筛选</p>
+<p>examples:</p>
+<p><code>find ~/project -name &quot;*.py&quot; -perm 644</code></p>
+<p><a href="https://www.cnblogs.com/peida/archive/2012/11/13/2767374.html" target="_blank" rel="noopener">每天一个linux命令（19）：find 命令概览</a></p>
 </div><iframe src="/donate/?AliPayQR=/img/AliPayQR.png&amp;WeChatQR=/img/WeChatQR.png&amp;GitHub=null&amp;BTCQR=null&amp;BTCKEY=null&amp;PayPal=null" style="overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;" frameborder="0" scrolling="no"></iframe><div class="tags"><a href="/tags/命令行/">命令行</a></div><div class="post-nav"><a class="pre" href="/2019/git/">git学习</a><a class="next" href="/2019/ob-my-zsh/">oh-my-zsh安装</a></div><div id="container"></div><link rel="stylesheet" type="text/css" href="//unpkg.com/gitalk/dist/gitalk.css?v=0.0.0"><script type="text/javascript" src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js?v=0.0.0"></script><script type="text/javascript" src="//unpkg.com/gitalk/dist/gitalk.min.js?v=0.0.0"></script><script>var gitalk = new Gitalk({
   clientID: '92ddf0f85e3c1e71311e',
   clientSecret: '892d455833df92b0fed6a7154015716f809b75ec',

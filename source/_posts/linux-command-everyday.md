@@ -228,8 +228,27 @@ find命令用来搜索文件，基础格式为
 
 `-user` 用户名筛选
 
+`-type` f是普通文件，d是目录
+
 examples:
 
 `find ~/project -name "*.py" -perm 644`
 
 [每天一个linux命令（19）：find 命令概览](https://www.cnblogs.com/peida/archive/2012/11/13/2767374.html)
+
+---
+
+### 20190227: xargs
+
+xargs的作用是将上一条命令的输出传递到下一条命令中，默认是一行一行执行，且将其放到最后，比如
+
+`find . -type f -name "*.txt" | xargs rm`
+
+`find . -type f -name "*.txt" | xargs zip text.zip`：将文件一个个加入到text.zip中
+
+可以使用`-I`来指定替换符，来改变上一个命令传递过来的输出摆放的位置
+
+`find . -type f -name "*.txt" | xargs -I {} echo "File {} found."`
+
+[每天一个linux命令（21）：find命令之xargs](https://www.cnblogs.com/peida/archive/2012/11/15/2770888.html)
+

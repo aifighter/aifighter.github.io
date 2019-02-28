@@ -214,7 +214,7 @@ locate用来寻找文件，查找快速，查询的是一个数据库，但是�
 
 ---
 
-### 20190226: find(1)
+### 20190226: find
 
 find命令用来搜索文件，基础格式为
 
@@ -230,9 +230,15 @@ find命令用来搜索文件，基础格式为
 
 `-type` f是普通文件，d是目录
 
+`-maxdepth n` 最大深度
+
+`-mtime +(-)n`  查找系统中最后n*24小时被改变文件数据的文件，+n是n天外，-n是n天内
+
 examples:
 
-`find ~/project -name "*.py" -perm 644`
+`find ~/project -maxdepth 1 -name "*.py" -perm 644 -mtime +30`
+
+找出30天前的所有py文件 
 
 [每天一个linux命令（19）：find 命令概览](https://www.cnblogs.com/peida/archive/2012/11/13/2767374.html)
 
@@ -249,6 +255,10 @@ xargs的作用是将上一条命令的输出传递到下一条命令中，默认
 可以使用`-I`来指定替换符，来改变上一个命令传递过来的输出摆放的位置
 
 `find . -type f -name "*.txt" | xargs -I {} echo "File {} found."`
+
+避开某个目录
+
+`find test -path "test/test3" -prune -o -print`
 
 [每天一个linux命令（21）：find命令之xargs](https://www.cnblogs.com/peida/archive/2012/11/15/2770888.html)
 

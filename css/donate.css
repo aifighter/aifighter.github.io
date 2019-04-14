@@ -39,7 +39,6 @@ a{
 	transition: all .3s;
 }
 #DonateText {
-	display: none;
 	position: fixed;
 	font-size: 12px;
 	width: 70px;

@@ -1,0 +1,4 @@
+[submodule "themes/maupassant-hexo"]
+	path = themes/maupassant-hexo
+	url = https://github.com/aifighter/maupassant-hexo
+	branch = master

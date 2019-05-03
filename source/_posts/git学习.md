@@ -1,5 +1,6 @@
 ---
 title: git学习
+urlname: lub96et7
 comments: true
 mathjax: true
 date: 2019-01-21 23:38:00

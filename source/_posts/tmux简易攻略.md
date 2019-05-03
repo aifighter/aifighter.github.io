@@ -1,5 +1,6 @@
 ---
 title: tmux简易攻略
+urlname: 354b3gb2
 comments: true
 mathjax: true
 date: 2019-01-18 16:00:00

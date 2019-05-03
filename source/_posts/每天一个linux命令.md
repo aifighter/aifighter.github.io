@@ -1,5 +1,6 @@
 ---
 title: 每天一个linux命令
+urlname: 2qzr7jix
 comments: true
 mathjax: true
 date: 2019-01-19 18:57:00

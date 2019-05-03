@@ -1,5 +1,6 @@
 ---
 title: Python面向对象编程
+urlname: gqkvutfq
 comments: true
 mathjax: true
 date: 2019-01-17 13:53:00

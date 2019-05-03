@@ -1,5 +1,6 @@
 ---
 title: oh-my-zsh安装
+urlname: i8r8lu32
 comments: true
 mathjax: true
 date: 2019-01-18 18:26:00

@@ -88,3 +88,10 @@ git reflog 找到对应的commit号
 git reset {commit-id}
 ```
 
+如何删除一个submodule？
+
+```
+git rm the_submodule
+rm -rf .git/modules/the_submodule
+```
+

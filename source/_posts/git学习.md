@@ -95,3 +95,9 @@ git rm the_submodule
 rm -rf .git/modules/the_submodule
 ```
 
+如何比较两个commit？
+
+```
+git diff HEAD~2 HEAD~1 ModelStructure.py
+```
+

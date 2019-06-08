@@ -21,7 +21,6 @@ def delete_file(path):
     if file_exist(path):
         os.remove(path)
     else:
-        # print('no such file:%s' % path)
         pass
 
 def file_exist(path):
@@ -36,16 +35,14 @@ def resize_rate(path, resize_path, fx, fy):
 
 
 def save_image(path, image):
+    if not os.path.exists(os.path.dirname(path)):
+        os.makedirs(os.path.dirname(path))
     cv.imwrite(path, image)
 
 
 def read_image(path):
     return cv.imread(path)
 
-
-# path: input image
-# resize_path: output image
-# filesize: target size in MB
 def resize_image(path, resize_path, filesize):
 
     print("Resizing {}".format(path))
@@ -54,6 +51,10 @@ def resize_image(path, resize_path, filesize):
     size = get_doc_size(path)
 
     delete_file(resize_path)
+
+    if size < filesize:
+        image = read_image(path)
+        save_image(resize_path, image)
 
     while size > filesize:
         rate = math.ceil((size / filesize) * 10) / 10 + 0.1
@@ -83,8 +84,8 @@ def list_all_files(path):
 if __name__=="__main__":
 
     filesize = 0.3
-    source_path = "/Users/lxc/project/aifighter.github.io/origin_images"
-    target_path = "/Users/lxc/project/aifighter.github.io/source/images"
+    source_path = "/Users/lxc/project/aifighter/aifighter.github.io/origin_images"
+    target_path = "/Users/lxc/project/aifighter/aifighter.github.io/source/images"
     source_files = list_all_files(source_path)
     target_files = [f.replace(source_path, target_path) for f in source_files]
     target_files = ['.'.join(f.split('.')[:-1] + ['jpg']) for f in target_files]

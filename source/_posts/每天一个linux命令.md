@@ -239,7 +239,11 @@ examples:
 
 `find ~/project -maxdepth 1 -name "*.py" -perm 644 -mtime +30`
 
-找出30天前的所有py文件 
+找出30天前的所有py文件
+
+`find . -maxdepth 1 -mmin +600 | xargs rm -r`
+
+删除10小时前创建的文件夹 
 
 [每天一个linux命令（19）：find 命令概览](https://www.cnblogs.com/peida/archive/2012/11/13/2767374.html)
 

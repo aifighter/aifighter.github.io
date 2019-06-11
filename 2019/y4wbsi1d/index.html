@@ -1,0 +1,58 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="机器学习 人工智能 深度学习 理财 定投 算法"><title>PCA的过程和原理 | 笨笨的爹</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">PCA的过程和原理</h1><a id="logo" href="/.">笨笨的爹</a><p class="description">笨笨是一只猫，哎，今晚又要打笨笨了</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">PCA的过程和原理</h1><div class="post-meta">Jun 10, 2019<span> | </span><span class="category"><a href="/categories/算法/">算法</a></span><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span></div><div class="post-content"><h1 id="1-PCA的步骤"><a href="#1-PCA的步骤" class="headerlink" title="1. PCA的步骤"></a>1. PCA的步骤</h1><p>假设有m条n维的数据</p>
+<ol>
+<li>$X_{n\times m}$</li>
+<li>将$X$的每一行减去对应的均值</li>
+<li>求出$X$的协方差矩阵$C=\frac{1}{m}XX^{\top}$</li>
+<li>求出$C$的特征值和特征向量</li>
+<li>将特征向量按特征值从大到小从上至下排列组成矩阵，取前$k$行组成矩阵$P_{k\times n}$</li>
+<li>$Y=PX$即为PCA后的结果</li>
+</ol>
+<h1 id="2-PCA的原理"><a href="#2-PCA的原理" class="headerlink" title="2. PCA的原理"></a>2. PCA的原理</h1><p><strong>内积与投影</strong></p>
+<p>$A\cdot B=|A||B|\cos\alpha$：$A$与$B$的点积等于$A$在$B$上的投影乘以$B$的模</p>
+<p>若$B$是单位向量，那么$A\cdot B=|A|\cos\alpha$</p>
+<p><strong>基变换的矩阵表示</strong></p>
+<p>$A_{2\times2}\vec x=\vec y$</p>
+<p>相当于将向量$\vec x$变换到以$A$的行向量为新的标准基的坐标，因为$A$的行向量与$\vec x$的点积相当于在新的基上的投影，即为在该基上的坐标。</p>
+<p>$A_{k\times n}B_{n\times m}=C_{r\times m}$</p>
+<p>上面的操作将m个n维向量映射到一个r维的基中，k小于n就实现了降维</p>
+<p><strong>从一维开始</strong></p>
+<p>若要将数据降维成一维，那么需要寻找一个基来做坐标变换，并且所有数据转换到这个基上后，方差最大</p>
+<p><strong>提升到二维</strong></p>
+<p>第二个维度的基需要满足：（1）与第一个基线性无关（2）数据在该基上的投影方差最大</p>
+<p><strong>协方差</strong></p>
+<p>数学上$cov(X,Y)=E(X-\mu)(Y-\nu)$，若协方差为0则两个变量相互独立</p>
+<p>对于PCA中的字段，由于已经做了减均值的操作，因此$cov(a,b)=\frac{1}{m}\sum_{i=1}^m{a_i b_i}$</p>
+<p><strong>PCA的目标</strong></p>
+<p>将一组N维向量映射到K维，其目标是选择K个单位（模为1）正交基，使得原始数据变换到这组基上后，各字段两两间协方差为0（即每一个特征维度都是线性无关的），而字段的方差则尽可能大（在正交的约束下，取最大的K个方差）。 </p>
+<p><strong>协方差矩阵</strong></p>
+<p>$X=[X_1, X_2, …, X_n]^\top$：$X$是以n个变量组成的列向量，$\mu_i$是$X_i$的期望</p>
+<p>协方差矩阵为：</p>
+<p>$\sum=E[(X-E(X))(X-E(X))^\top]$</p>
+<p>其中：</p>
+<p>$\sum_{ij}=cov(X_i, X_j)=E[(X_i-\mu_i)(X_j-\mu_j)]$</p>
+<p><strong>结论</strong></p>
+<p>假设PCA前的原始矩阵为$X_{n\times m}$，变换矩阵为$P_{k\times n}$，变换后的矩阵为$Y_{k\times m}=PX$</p>
+<p>假设$X$的协方差矩阵为$C=\frac{1}{m}XX^\top$，$Y$的协方差矩阵为$D=\frac{1}{m}YY^\top$(因为均值都是0)</p>
+<p>那么就有</p>
+<p>$D=\frac{1}{m}YY^\top$</p>
+<p>$=\frac{1}{m}(PX)(PX)^\top$</p>
+<p>$=\frac{1}{m}PXX^\top P^\top$</p>
+<p>$=\frac{1}{m}P(XX^\top) P^\top$</p>
+<p>$=\frac{1}{m}PCP^\top$</p>
+<p>我们的目的是要让$D$是一个对角矩阵（满足各个特征线性无关），且对角元素越大越好（方差最大）</p>
+<p>所以我们要找的$P$就是能够使$C$对角化的矩阵，这个在数学上很简单</p>
+<p>$P$就是把$C$的特征向量按大小在行上从大到小排列的矩阵！</p>
+</div><iframe src="/donate/?AliPayQR=/img/AliPayQR.png&amp;WeChatQR=/img/WeChatQR.png&amp;GitHub=null&amp;BTCQR=null&amp;BTCKEY=null&amp;PayPal=null" style="overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;" frameborder="0" scrolling="no"></iframe><div class="tags"><a href="/tags/预处理/">预处理</a></div><div class="post-nav"><a class="next" href="/2019/eb5ed2m6/">线性代数基础</a></div><div id="container"></div><link rel="stylesheet" type="text/css" href="//unpkg.com/gitalk/dist/gitalk.css?v=0.0.0"><script type="text/javascript" src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js?v=0.0.0"></script><script type="text/javascript" src="//unpkg.com/gitalk/dist/gitalk.min.js?v=0.0.0"></script><script>var gitalk = new Gitalk({
+  clientID: '92ddf0f85e3c1e71311e',
+  clientSecret: '892d455833df92b0fed6a7154015716f809b75ec',
+  repo: 'aifighter.github.io',
+  owner: 'aifighter',
+  admin: ['aifighter'],
+  id: md5(location.pathname),
+  distractionFreeMode: false
+})
+gitalk.render('container')
+</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/开发/">开发</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数学/">数学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/理财/">理财</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/预处理/" style="font-size: 15px;">预处理</a> <a href="/tags/命令行/" style="font-size: 15px;">命令行</a> <a href="/tags/理财/" style="font-size: 15px;">理财</a> <a href="/tags/算法/" style="font-size: 15px;">算法</a> <a href="/tags/线性代数/" style="font-size: 15px;">线性代数</a> <a href="/tags/游记/" style="font-size: 15px;">游记</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/y4wbsi1d/">PCA的过程和原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/eb5ed2m6/">线性代数基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/htqc14mf5/">CS224N学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/zgaasgmj/">基金学习笔记-躺着也赚钱的投资攻略</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/2heucsdf/">看懂股票的两张表和五个重要指标</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/mdqa85w2/">定投收益率怎么算</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/pss4oy52/">余额宝七日年化利率怎么算</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/qrp8fj4d/">柬埔寨-佛系旅行</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/lub96et7/">git学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/2qzr7jix/">每天一个linux命令</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://www.jianshu.com/u/1cd34c54fc09" title="1. 简书主页" target="_blank">1. 简书主页</a><ul></ul><a href="https://github.com/aifighter" title="2. Github主页" target="_blank">2. Github主页</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2019 <a href="/." rel="nofollow">笨笨的爹.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.2/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.2/jquery.fancybox.min.css"><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+</script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML" async></script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

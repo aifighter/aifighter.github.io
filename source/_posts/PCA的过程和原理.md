@@ -64,11 +64,11 @@ $X=[X_1, X_2, ..., X_n]^\top$：$X$是以n个变量组成的列向量，$\mu_i$�
 
 协方差矩阵为：
 
-$\sum=E[(X-E(X))(X-E(X))^\top]$
+$\Sigma=E[(X-E(X))(X-E(X))^\top]$
 
 其中：
 
-$\sum_{ij}=cov(X_i, X_j)=E[(X_i-\mu_i)(X_j-\mu_j)]$
+$\Sigma_{ij}=cov(X_i, X_j)=E[(X_i-\mu_i)(X_j-\mu_j)]$
 
 ### 结论
 

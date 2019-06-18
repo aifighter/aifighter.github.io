@@ -11,8 +11,45 @@
 <p>以下情况适用泊松分布：</p>
 <p>一家店平均每天会来5个人，有时多，有时少，那么想要知道每天来店的人数的分布。</p>
 <p>具体做法如下：</p>
-<p>把一天的时间分成$n$份$n \to \infty$，那么每一份时间最多来一个客人，且每一个时间来人是独立的，假设平均每一天来$\lambda$人，且每一份时间来人的概率就是$p=\frac{\lambda}{n}$，那么一天中来人的数量为$k$就是一个二项分布了：</p>
+<p>把一天的时间分成$n$份$n \to \infty$，那么每一份时间最多来一个客人，且每一个时间来人是独立的，假设平均每一天来$\lambda$人，且每一份时间来人的概率就是$p=\frac{\lambda}{n}$，那么一天中来人的数量为$k$的概率就是一个二项分布了：</p>
 <p>$P(X=k)=\lim_{n \to\infty}C_n^k(\frac{\lambda}{n})^k {(1-\frac{\lambda}{n})}^{n-k}=\frac{\lambda^{k}}{k!}e^{-\lambda}$</p>
+<p>在现实生活中，类似排队这样的场景都可以用泊松分布来描述</p>
+<p>如何理解指数分布</p>
+<blockquote>
+<p>指数分布就是泊松分布的时间间隔</p>
+</blockquote>
+<p>首先对泊松分布做一个扩展，上面的泊松分布只能描述“一天”内的情况，那么“半天”怎么描述呢</p>
+<p>$P(X=k,t)=\frac{(\lambda{t})^{k}}{k!}e^{-\lambda{t}}$</p>
+<p>那么“两次来客的间隔大于t的概率”=”t时间内没有客人来的概率“</p>
+<p>$P(Y&gt;t)=P(X=0,t)=e^{-\lambda t}$</p>
+<p>对应的：</p>
+<p>$P(Y\leq y)=1-e^{-\lambda y}, y \geq 0$</p>
+<p>概率密度函数：</p>
+<p>$p(y)=\lambda e^{-\lambda y}, y \geq 0$</p>
+<p>泊松分布和指数分布的期望：</p>
+<p>$E(X)=\lambda$，$E(Y)=\frac{1}{\lambda}$</p>
+<p>中心极限定理</p>
+<p>中心极限定理指的是给定一个任意分布的总体。我每次从这些总体中随机抽取 n 个抽样，一共抽 m 次。 然后把这 m 组抽样分别求出平均值。 这些平均值的分布接近正态分布。</p>
+<p>大数定律</p>
+<p>通俗地讲，样本足够大时，样本均值趋向于整体期望</p>
+<p>正态分布</p>
+<p>概率密度函数，其中$\mu$是均值，$\sigma^2$是方差</p>
+<p>$f(x)=\frac{1}{\sigma\sqrt{2\pi}}exp(\frac{-(x-\mu)^2}{2\sigma^2})$</p>
+<p>如何理解概率论中的矩</p>
+<p>矩和物理中的力矩很像，$p(x)$就像是力矩，$x$就像是力。</p>
+<p>一阶矩是期望，二阶矩是方差。</p>
+<p>一阶矩：$\mu_1^{‘}=\int{xp(x)dx}=E(x)$</p>
+<p>n阶矩：$\mu_n^{‘}=\int{(x-E(x))^{n}p(x)dx}$</p>
+<p>为什么样本方差的分母是n-1</p>
+<p>假设随机变量$X$，期望是$\mu=E(X)$，方差$\sigma^2=E[(X-\mu)^2]$。</p>
+<p>现在采样$n$个值来对$X$做估计</p>
+<ol>
+<li>用$\overline{X}=\frac{1}{n}\sum X_i$来估计$\mu$是一个无偏估计</li>
+<li>用$S^2=\frac{1}{n}\sum{(X_i-\mu)^2}$来估计$\sigma^2$也是一个无偏估计（然而$\mu$是不知道的）</li>
+<li>用$\frac{1}{n}\sum{(X_i-\overline{X})^2}$来估计$\sigma^2$是一个有偏估计</li>
+<li>用$S^2=\frac{1}{n-1}\sum{(X_i-\overline{X})^2}$来估计$\sigma^2$才是一个无偏估计</li>
+</ol>
+<p>定性来看3为什么是有偏的，因为$\overline{X}$是不准的，所以会导致$\frac{1}{n}\sum{(X_i-\overline{X})^2}$偏小（想象一下0和2两个数，一个用1算方差，一个用0），所以要调整一下让它正常。经过计算4是无偏的</p>
 </div><iframe src="/donate/?AliPayQR=/img/AliPayQR.png&amp;WeChatQR=/img/WeChatQR.png&amp;GitHub=null&amp;BTCQR=null&amp;BTCKEY=null&amp;PayPal=null" style="overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;" frameborder="0" scrolling="no"></iframe><div class="tags"><a href="/tags/概率与统计/">概率与统计</a></div><div class="post-nav"><a class="pre" href="/2019/j4fkjqr2/">力哥说基金</a><a class="next" href="/2019/1g4k8w89/">特征分解与奇异值分解</a></div><div id="container"></div><link rel="stylesheet" type="text/css" href="//unpkg.com/gitalk/dist/gitalk.css?v=0.0.0"><script type="text/javascript" src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js?v=0.0.0"></script><script type="text/javascript" src="//unpkg.com/gitalk/dist/gitalk.min.js?v=0.0.0"></script><script>var gitalk = new Gitalk({
   clientID: '92ddf0f85e3c1e71311e',
   clientSecret: '892d455833df92b0fed6a7154015716f809b75ec',
@@ -23,7 +60,7 @@
   distractionFreeMode: false
 })
 gitalk.render('container')
-</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/开发/">开发</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数学/">数学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/理财/">理财</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/算法/" style="font-size: 15px;">算法</a> <a href="/tags/预处理/" style="font-size: 15px;">预处理</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/命令行/" style="font-size: 15px;">命令行</a> <a href="/tags/理财/" style="font-size: 15px;">理财</a> <a href="/tags/概率与统计/" style="font-size: 15px;">概率与统计</a> <a href="/tags/线性代数/" style="font-size: 15px;">线性代数</a> <a href="/tags/游记/" style="font-size: 15px;">游记</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/j4fkjqr2/">力哥说基金</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/n3t7eh59/">概率与统计基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/1g4k8w89/">特征分解与奇异值分解</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/y4wbsi1d/">PCA的过程和原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/eb5ed2m6/">线性代数基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/htqc14mf5/">CS224N学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/zgaasgmj/">基金学习笔记-躺着也赚钱的投资攻略</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/2heucsdf/">看懂股票的两张表和五个重要指标</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/mdqa85w2/">定投收益率怎么算</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/pss4oy52/">余额宝七日年化利率怎么算</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://www.jianshu.com/u/1cd34c54fc09" title="1. 简书主页" target="_blank">1. 简书主页</a><ul></ul><a href="https://github.com/aifighter" title="2. Github主页" target="_blank">2. Github主页</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2019 <a href="/." rel="nofollow">笨笨的爹.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.2/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.2/jquery.fancybox.min.css"><script type="text/x-mathjax-config">MathJax.Hub.Config({
+</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/开发/">开发</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数学/">数学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/理财/">理财</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/预处理/" style="font-size: 15px;">预处理</a> <a href="/tags/算法/" style="font-size: 15px;">算法</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/命令行/" style="font-size: 15px;">命令行</a> <a href="/tags/理财/" style="font-size: 15px;">理财</a> <a href="/tags/概率与统计/" style="font-size: 15px;">概率与统计</a> <a href="/tags/线性代数/" style="font-size: 15px;">线性代数</a> <a href="/tags/游记/" style="font-size: 15px;">游记</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/j4fkjqr2/">力哥说基金</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/n3t7eh59/">概率与统计基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/1g4k8w89/">特征分解与奇异值分解</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/y4wbsi1d/">PCA的过程和原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/eb5ed2m6/">线性代数基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/htqc14mf5/">CS224N学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/zgaasgmj/">基金学习笔记-躺着也赚钱的投资攻略</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/2heucsdf/">看懂股票的两张表和五个重要指标</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/mdqa85w2/">定投收益率怎么算</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/pss4oy52/">余额宝七日年化利率怎么算</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://www.jianshu.com/u/1cd34c54fc09" title="1. 简书主页" target="_blank">1. 简书主页</a><ul></ul><a href="https://github.com/aifighter" title="2. Github主页" target="_blank">2. Github主页</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2019 <a href="/." rel="nofollow">笨笨的爹.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.2/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.2/jquery.fancybox.min.css"><script type="text/x-mathjax-config">MathJax.Hub.Config({
   tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   });
 </script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML" async></script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

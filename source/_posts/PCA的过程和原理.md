@@ -50,7 +50,7 @@ $A_{k\times n}B_{n\times m}=C_{r\times m}$
 
 ### （5）协方差
 
-数学上$cov(X,Y)=E(X-\mu)(Y-\nu)$，若协方差为0则两个变量相互独立
+数学上$cov(X,Y)=E[(X-\mu)(Y-\nu)]$，若协方差为0则两个变量相互独立
 
 对于PCA中的字段，由于已经做了减均值的操作，因此$cov(a,b)=\frac{1}{m}\sum_{i=1}^m{a_i b_i}$
 

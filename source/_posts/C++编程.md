@@ -13,6 +13,6 @@ description: 重新学习一下C++编程
 
 # 3. Working with batches of data
 
-**\<iomanip\>**
+`<iomanip>`
 
-包含了`std::setprecision`，它是一种manipulator，用于IO中，用法和endl一样。endl也是一种manipulator，但是用于太常用放在了\<iostream\>中。
+包含了`std::setprecision`，它是一种manipulator，用于IO中，用法和`std::endl`一样。`std::endl`也是一种manipulator，但是用于太常用放在了`<iostream>`中。

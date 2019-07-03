@@ -13,6 +13,15 @@ description: 重新学习一下C++编程
 
 # 3. Working with batches of data
 
-`<iomanip>`
+**`<iomanip>`**
 
 包含了`std::setprecision`，它是一种manipulator，用于IO中，用法和`std::endl`一样。`std::endl`也是一种manipulator，但是用于太常用放在了`<iostream>`中。
+
+**`cin >> midterm >> final;`**
+
+由于`>>`运算符是左结合，而且返回左operand。所以上面的代码和`cin >> midterm; cin >> final;`是一样的。
+
+**string literal以空格隔开默认会concat**
+
+`"abc" "def"`等价于`"abcdef"`，即使以回车隔开也是等价的。在C++代码中空格换行等都是一样的。代码以分号或者花括号分割。
+

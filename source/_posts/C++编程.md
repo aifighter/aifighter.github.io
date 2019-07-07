@@ -64,8 +64,6 @@ int main() {
 }
 ```
 
-
-
 ### `<iomanip>`
 
 包含了`std::setprecision`，它是一种manipulator，用于IO中，用法和`std::endl`一样。`std::endl`也是一种manipulator，但是用于太常用放在了`<iostream>`中。
@@ -99,4 +97,129 @@ int main() {
 ### `streamsize prec = cout.precision();`
 
 可以获取到目前cout的精度，steamsize是`<ios>`中提供的
+
+# 4. Organizing programs and data
+
+### call by value
+
+`double grade(double midterm, double final, double homework) `
+
+传入的参数相当于是给函数中的变量赋了初值，因此不会改变原始值，scope只在函数内，结束就销毁了
+
+### throw exception
+
+`throw domain_error("median of an empty vector");`
+
+抛出异常，domain_error是定义在`<stdexcept>`中的
+
+### &与函数传参
+
+`double grade(double midterm, double final, const vector<double>& hw) `
+
+首先&代表了reference，hw相当于给了传入参数的别名，修改hw会直接修改传入参数。加入了const的话就意味着hw不能被修改（不代表原变量一定也是const）。
+
+`double median(vector<double> vec) `
+
+上面这种会传入一份vector的拷贝，也不会修改传入值
+
+### overloading
+
+函数的参数类型数量不同可以实现同名函数的重载。返回类型不同的函数**不能**重载。
+
+### 函数返回&
+
+意味着函数返回的是return后面的东西，而不是它的复制，可以理解成返回的是给一个新的初值为return值的reference
+
+### `cin.clear()`
+
+即`istream.clear()`，确保可以正常获取输入
+
+### `hw.clear()`
+
+hw是`vector<double>`，作用是清空已有数据
+
+### lvalue
+
+即有名字的变量，可以被访问的，例如1，"abc"这些就不是lvalue，当使用reference传递的函数（并且我们想要修改传入的参数）时，不要传入lvalue，否则我们将无妨访问得到的修改。
+
+`istream& read_hw(istream& in, vector<double>& hw) `
+
+这里传入的hw必须是一个lvalue
+
+### try..catch
+
+可以配合函数中的throw使用
+
+```c++
+try {
+    ...
+} catch (domain_error) {
+    ...
+}
+```
+
+用下面的方法可以输出error中的信息
+
+```c++
+catch (domain_error e) {
+    cout << e.what();
+}
+```
+
+### struct
+
+```c++
+struct Student_info { 
+    string name;
+    double midterm, final;
+    vector<double> homework;
+};
+```
+
+### 对vector<Student_info>排序
+
+```c++
+bool compare(const Student_info& x, const Student_info& y) {
+    return x.name < y.name; 
+}
+sort(students.begin(), students.end(), compare);
+```
+
+### header file 
+
+在median.h中，放入函数的声明，以及最小限度的include，不要使用using（因为不确定其他include该头文件的文件是不是想要使用using，此外，函数参数不需要变量名。
+
+此外第1，2及最后1行的写法可以防止该文件被多次include。
+
+```c++
+#ifndef GUARD_median_h 
+#define GUARD_median_h
+#include <vector>
+double median(std::vector<double>);
+#endif
+```
+
+系统的头例如`#include <vector>`不一定是以头文件形式存在的。
+
+### source file
+
+在source file中的using只是local的，不会被其他引入了对应的.h文件的source file所引入
+
+### inline
+
+函数前加入inline，是为了避免频繁调用函数对栈内存重复开辟所带来的消耗。
+
+```c++
+inline char* dbtest(int a) {
+    return (i % 2 > 0) ? "奇" : "偶";
+} 
+```
+
+# 5. Using sequential containers and analyzing strings
+
+### vector的erace()方法
+
+`students.erase(students.begin() + i);`
+
+这个方法的时间复杂度是$O(N^2)$，非常耗时
 

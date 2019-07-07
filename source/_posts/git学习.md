@@ -101,3 +101,18 @@ rm -rf .git/modules/the_submodule
 git diff HEAD~2 HEAD~1 ModelStructure.py
 ```
 
+如何连接到远程repo？
+
+```
+git remote add origin https://github.com/aifighter/accelerated-cpp.git
+git push -u origin master
+```
+
+如何使用tag？
+
+```
+git tag -a "HelloWorld" -m "Clion initial c++ project."
+git checkout HelloWorld
+git tag -d "HelloWorld"
+```
+

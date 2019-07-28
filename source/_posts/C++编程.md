@@ -219,7 +219,232 @@ inline char* dbtest(int a) {
 
 ### vector的erace()方法
 
+`students`是`vector<Student_info>`
+
 `students.erase(students.begin() + i);`
 
-这个方法的时间复杂度是$O(N^2)$，非常耗时
+erase本身是`O(N)`的，因为它需要把后面的元素一个个往前挪一格
+
+### vector的random access和sequential access
+
+students[i]实际上是一种random access，因为可以任意访问某一个元素
+
+如果只能顺序访问，那么效率也会提升，就需要使用iterator
+
+### iterator
+
+iterator和size_type一样都是在vector的namespace里
+
+有两种方法可以定义container-type的iterator（vector是一种container）
+
+`container-type::const_iterator`
+
+`container-type::iterator`
+
+之前的`students.begin()`和`students.end()`实际上返回的都是iterator，它支持`+`的重载
+
+iterator只是对应变量的地址，要访问实际的变量，需要用dereference运算符`*`来访问
+
+```c++
+vector<double> vec;
+vec.push_back(1);
+vec.push_back(2);
+vector<double>::const_iterator iter = vec.begin();
+cout << vec[0] << *iter << *(iter + 1) <<endl; 
+```
+
+**syntax sugar**：若iter是一个iterator，并且指向的是一个struct，那么可以用`iter->name`代替`(*iter).name`
+
+`iter = students.erase(iter);`
+
+可以在删除iter后返回iter之后的元素位置
+
+### list
+
+用法和vector几乎一模一样，除了不能random_access。
+
+list不支持`<algorithm>`中的sort方法
+
+```c++
+list<Student_info> students; 
+students.sort(compare);
+```
+
+它的erase和push_back效率高于vector，然而顺序访问的效率上，vector要更佳
+
+### `<cctype>`
+
+这个header定义了许多与char相关的操作例如isspace，isalpha等等
+
+### string的类似container的操作
+
+string的很多操作和container类似，比如iterator，通过index访问等等。
+
+另外，string的substr(a, b)截取一段substring
+
+### getline读取一行输入
+
+在`<string>`中定义
+
+`getline(cin, s)`
+
+### vector的insert方法
+
+`a.insert(a.end(), b.begin(), b.end())`
+
+在`a.end()`前插入`[b.begin, b.end())`的所有元素
+
+`a.insert(a.end(), c)`
+
+在`a.end()`前插入c
+
+### container的其他方法
+
+`container<T> c(c2);`定义一个新的container，是c2的复制
+
+`container<T> c(n, t); `n个element，均为c
+
+`container<T> c(b, e); `传入iterator，container的元素是[b, e)的值
+
+`c.erase(b, e)`
+
+### vector的其他方法
+
+`v.reverse()`
+
+`v.resize(n)`
+
+# 6. Using library algorithms
+
+### genetic algorithm
+
+泛型算法，不属于某个特定的数据类型
+
+例如`copy(begin, end, out);`等价于`while (begin != end) *out++ = *begin++;`
+
+### iterator adaptor
+
+`back_inserter(ret)`，ret是一个container，返回一个用于插入的iterator。
+
+例：`copy(bottom.begin(), bottom.end(), back_inserter(ret));`
+
+错误1：`copy(bottom.begin(), bottom.end(), ret);`
+
+错误2：`copy(bottom.begin(), bottom.end(), ret.end());`
+
+这个操作等同于
+
+`ret.insert(ret.end(), bottom.begin(), bottom.end());`
+
+其他还有（c是container，it是itereator）
+
+`front_inserter(c)`
+
+`inserter(c, it) `
+
+### `<algorithm>`中的部分方法
+
+1. find_if
+
+   `InputIterator find_if (InputIterator first, InputIterator last, UnaryPredicate pred)`
+
+   从first到last中第一个满足`pred(*i)`的iter并返回
+
+2. equal
+
+   `bool equal ( InputIterator1 first1, InputIterator1 last1, InputIterator2 first2 )`
+
+   判断两个序列是否相等，第二个序列不需要给end
+
+   `container.rend()`返回一个从末尾开始往前走的iter，因此`equal(s.begin(), s.end(), s.rbegin())`可以用来判断一个string是否回文
+
+3. find
+
+   `InputIterator find (InputIterator first, InputIterator last, const T& val)`
+
+   类似find_if，直接找对应元素
+
+4. search
+
+   `ForwardIterator1 search ( ForwardIterator1 first1, ForwardIterator1 last1, ForwardIterator2 first2, ForwardIterator2 last2)`
+
+   从1中找到2，并返回begin
+
+5. transform
+
+   `transform(students.begin(), students.end(), back_inserter(grades), grade);`
+
+   有点类似apply，对students的每个element执行grade函数，结果插入到grades中
+
+   这里grade重载过，所以需要写一个辅助函数来代替grade
+
+6. accumulate
+
+   `T accumulate (InputIterator first, InputIterator last, T init)`
+
+   定义在`<numeric>`中，用于累加
+
+7. remove_copy
+
+   ```c++
+   OutputIterator remove_copy(InputIterator first, InputIterator last, 
+                              OutputIterator result, const T& val);
+   ```
+
+   把序列中和val相同的去除，其他插入result中
+
+8. 删除vector中满足某条件的元素
+
+   ```c++
+   students.erase(remove_if(students.begin()), students.end(),
+                  fgrade), students.end());
+   ```
+
+   remove_if 会把数组中满足fgrade的数据位置处填入后面的需保留数据，然后将iterator放在需保留数据后面，后面的数据并不会删除。再调用erase即可删除数据。
+
+9. stable_partition
+
+   `stable_partition(students.begin(), students.end(), pgrade);`
+
+   把满足pgrade的放前面，不满足的放后面，返回分割处的iterator
+
+10. algorithm往往不改变container而是作用于container中的元素
+
+### static
+
+static storage class specifier：变量存入静态区，在main函数执行完毕再清除
+
+```c++
+bool not_url_char(char c) {
+    static const string url_ch = "~;/?:@=&$-_.+!*'(),";
+    //...
+}
+```
+
+在上面的函数中，url_ch不会反复创建，仅在第一次调用函数时创建，作用域依然只是这个函数。
+
+### beg[-1]，i[sep.size()]
+
+begin是一个iterator：那么`beg[-1]`即为`*(beg - 1)`
+
+`i[sep.size()]`即为`*(i + sep.size())`
+
+### 向函数传参函数
+
+```c++
+void write_analysis(ostream& out, const string& name, 
+                    double analysis(const vector<Student_info>&),
+                    const vector<Student_info>& did,
+                    const vector<Student_info>& didnt)
+```
+
+# 7. Using associative containers
+
+### map
+
+类似于python中的dict，`map<string, int> counters`
+
+`counters[s]`会自动插入一个element
+
+map的iterator本质上是pair，可以通过`it->first`访问key，`it->second`访问对应的值
 

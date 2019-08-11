@@ -60,3 +60,4 @@ tmux是终端复用命令行工具，可以在一个terminal下开多个窗口�
 因为tmux运行时会先去运行`~/.profile`的，而`~/.zshrc`似乎不会去运行
 
 [十分钟学会tmux](https://www.cnblogs.com/kaiye/p/6275207.html)
+

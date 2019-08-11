@@ -448,3 +448,44 @@ void write_analysis(ostream& out, const string& name,
 
 map的iterator本质上是pair，可以通过`it->first`访问key，`it->second`访问对应的值
 
+访问
+
+某一个key的时候，不要用counters[s]，因为若不存在key s，会创建一个新key
+
+而是用
+
+```c++
+Grammar::const_iterator it = g.find(word); 
+if (it == g.end())
+    throw logic_error("empty rule");
+```
+
+尽管associative containers不是最快的，但是已经足够优秀
+
+# 8. Writing generic functions
+
+### Template Functions
+
+```c++
+template<class T>
+T median(vector<T> v) {
+    typedef typename vector<T>::size_type vec_sz;
+    vec_sz size = v.size(); 
+    if (size == 0)
+        throw domain_error("median of an empty vector");
+    sort(v.begin(), v.end());
+    vec_sz mid = size/2;
+    return size % 2 == 0 ? (v[mid] + v[mid-1]) / 2 : v[mid]; 
+}
+```
+
+1. 在调用的时候，直接`median(param1)`即可。
+2. 若传参中不包含T而仅仅返回值带T，那么编译器将无法推断T是什么。因此需要这样调用`median<double>(param1)`
+3. 在函数中使用类似`vector<T>::size_type`的type时前面要加上typename关键词
+
+### 5种iterators
+
+![5种iterators的区别](/images/iterators.jpg)
+
+`std::back_inserter`生成的是一种特殊的output iterator，可以在后面插入
+

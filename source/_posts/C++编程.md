@@ -166,6 +166,18 @@ catch (domain_error e) {
 }
 ```
 
+下面的写法可以catch任意的error
+
+```c++
+try {
+    ...
+} catch (...) {
+    ...
+}
+```
+
+
+
 ### struct
 
 ```c++
@@ -488,4 +500,451 @@ T median(vector<T> v) {
 ![5种iterators的区别](/images/iterators.jpg)
 
 `std::back_inserter`生成的是一种特殊的output iterator，可以在后面插入
+
+# 9. Defining new types
+
+### `::`与`.`
+
+`::` 用在type的member上，比如`Student_info::read`
+
+`.` 用在某个instance上，比如`s.read`
+
+### constant member function
+
+`double Student_info::grade() const { ... }`
+
+此类函数确保不会修改成员变量
+
+constant的对象可以call constant member function而不能call非constant的
+
+### struct与class的区别
+
+struct中默认是public
+
+class的默认是private
+
+```c++
+// 以下两个等价
+struct Student_info { 
+    private:
+    std::string name;
+    public:
+    double grade() const;
+};
+class Student_info { 
+    std::string name;
+    public:
+    double grade() const; 
+};
+```
+
+### class constructor
+
+`Student_info::Student_info(): midterm(0), final(0) { }`
+
+对于Student_info类中，若不定义构造函数，那么成员变量将会被初始化：
+
+（1）built-in type如midterm和final这两个浮点数将会被初始化为内存中的随机值
+
+（2）其他类的object将会被使用该类的默认构造函数构造，如string和vector，将会被初始化成空string和空vector
+
+为了让类的成员变量都被初始化成有意义的值，可以使用上面的写法
+
+# 10. Managing memory and low-level data structures
+
+### Pointer
+
+A pointer is a value that represents the address of an object.
+
+```c++
+int x = 5;
+int* p = &x;
+*p = 6;
+```
+
+### Pointers to functions
+
+一般不需要用*号，因为c++会自动将不传参的函数名认为是取地址
+
+```c++
+int next(int n) 
+{
+    return n + 1; 
+}
+// these two statements are equivalent 
+fp = &next;
+fp = next;
+// these two statements are equivalent 
+i = (*fp)(i);
+i = fp(i);
+// these two statements are equivalent 
+double analysis(const vector<Student_info>&)
+double (*analysis)(const vector<Student_info>&)
+```
+
+### Arrays
+
+>  "a pointer is a random-access iterator"
+
+`p[n]` 等价于 `*(p + n)`
+
+```c++
+double coords[NDim];
+*coords = 1.5;
+*(coords+1) = 2;
+vector<double> v;
+copy(coords, coords + NDim, back_inserter(v));
+const int month_lengths[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+```
+
+### string literal
+
+等价于下面这个
+
+`const char hello[] = { 'H', 'e', 'l', 'l', 'o', '\0' };`
+
+### sizeof
+
+`static const size_t ngrades = sizeof(numbers)/sizeof(*numbers); `
+
+sizeof是获得对象的大小，以bytes计
+
+size_t是sizeof返回的类型
+
+### "?\?\?"
+
+在C++中，字符串中不能连续出现两个问号，需要这样。
+
+### 给main函数传参
+
+`int main(int argc, char** argv)`
+
+argc是传入的参数的个数，argv是指向char*的数组，其中第一个参数是命令自身
+
+用法` ./cmake-build-debug/accelerated_cpp hello c`
+
+### 读写文件
+
+```c++
+ifstream infile("in");
+ofstream outfile("out");
+string s;
+while (getline(in, s)) {
+    outfile << s << endl;
+}
+```
+
+### cerr和clog
+
+都是往std error写东西的，用法和cout差不多
+
+### 3种内存分配
+
+1. automatic memory management
+
+   用于local variable
+
+   ```c++
+   int* invalid_pointer()
+   {
+       int x; // 前面加static的话则不会有问题
+       return &x; // instant disaster! 
+   }
+   ```
+
+2. static allocate
+
+   用static关键词，一次分配，直到程序结束时永久有效
+
+3. dynamic allocate
+
+   任意时候删除
+
+### new delete
+
+1. object
+
+   `p = new T(args)`
+
+   分配一个object T并且把指向T的指针返回，括号内的值可以用来初始化这个object
+
+   `delete p `
+
+2. 数组array
+
+   `T* p = new T[n]`
+
+   `delete[] p`
+
+   delete后面的括号是告诉compiler要删除整个数组而不是首个元素
+
+### array和指向array的指针的区别
+
+```c++
+double a[] = {1,2};
+delete[] a; // 不可以
+double* b = new double[2];
+delete[] b; // 可以
+```
+
+# 11. Defining abstract data types
+
+这一章构建了一个Vec类，功能类似于vector
+
+### explicit
+
+构造函数前加入explicit可以阻止不应该允许的经过转换构造函数进行的隐式转换的发生
+
+`explicit Vec(size_type n, const T& val = T()) { create(n, val); }`
+
+它阻止了这样的写法：
+
+`Vec a = 10`
+
+确保了这种构造函数只能这样调用
+
+`Vec a(10)`或者`Vec a = Vec(10)`
+
+### 用typedef来增加模版类的可读性
+
+```c++
+template <class T> class Vec { 
+public:
+    typedef T* iterator;
+    typedef const T* const_iterator; 
+    typedef size_t size_type; 
+    typedef T value_type;
+    
+	Vec() { create(); }
+	explicit Vec(size_type n, const T& val = T()) { create(n, val); }
+    
+    size_type size() const { return limit - data; }
+    T& operator[](size_type i) { return data[i]; }
+    const T& operator[](size_type i) const { return data[i]; }
+    
+    // new functions to return iterators
+	iterator begin() { return data; } 
+    const_iterator begin() const { return data; }
+	iterator end() { return limit; } 
+    const_iterator end() const { return limit; }
+
+private:
+    iterator data;
+    iterator limit;
+};
+```
+
+###  size()
+
+返回的type是size_type，虽然我们return了一个int，但是最后会自动做好转换的
+
+### 重载index
+
+回顾一下在函数定义前加入const的含义是只有const类型的object才会调用这个函数
+
+同时这个函数返回引用，可以做修改成员值的功能
+
+### 复制构造函数 copy constructor
+
+```c++
+Vec(const Vec& v) { create(v.begin(), v.end()); }
+```
+
+接收的参数是一个constant的reference
+
+它的作用是在以下的场景中被用到，在vector中，下面的b和a会是不相关的两个object
+
+```c++
+vector<int> b = a;
+median(a);
+```
+
+### 赋值运算符 assignment operator
+
+`operator=`
+
+赋值运算符，用于给一个已经存在的operator赋上新的值，举个例子 
+
+```c++
+string a = "cbc"; // implicit，寻找参数为const char*的constructor，explicit就是避免这种用法
+string b = a; // copy constructor
+string c; // default constructor
+c = a; // assignment operator
+```
+
+```c++
+template <class T>
+Vec<T>& Vec<T>::operator=(const Vec& rhs) {
+    // check for self-assignment
+    if (&rhs != this) {
+        // free the array in the left-hand side
+        uncreate();
+        // copy elements from the right-hand to the left-hand side
+        create(rhs.begin(), rhs.end());
+    }
+    return *this;
+}
+```
+
+上面的函数定义不是在header中的，那么`Vec<T>`不能被略写成`Vec`
+
+### this
+
+在c++中的类定义中，this指的是这个类的object的指针
+
+### 析构函数 destructor
+
+```c++
+template <class T> class Vec { 
+public:
+    ~Vec() { uncreate(); }
+    // as before 
+};
+```
+
+何时会调用析构函数：（1）out of scope （2）delete动态创建的指针
+
+### 默认函数
+
+constructor，destructor，copy constructor，assignment operator都有默认的实现
+
+### Rule of three
+
+> If your class needs a destructor, it probably needs a copy constructor and an assignment
+> operator too.
+
+在Vec这个例子中，一定是需要destructor的，因为默认的destructor会做这样的事情：
+
+```c++
+delete data;
+delete limit;
+```
+
+这样子是删除不干净数据的。
+
+rule of three 告诉我们同时也要定义一下copy constructor and assignment operator
+
+### 实现push_back
+
+策略是当空间不够用时double一下
+
+```c++
+void push_back(const T& t) { 
+    if (avail == limit)
+        grow();
+    unchecked_append(t);
+}
+// 之前定义的data和limit就不够用了，加一个avail指向有数据的last element
+iterator data; // first element in the Vec
+iterator avail; // (one past) the last element in the Vec 
+iterator limit; // (one past) the allocated memory
+```
+
+### `<memory>`中的allocator类
+
+new和delete在分配空间时会使用默认构造函数来构造对象，有时会浪费性能
+
+allocator类可以只分配空间不初始化
+
+```c++
+template<class T> class allocator { 
+public:
+    T* allocate(size_t);
+    void deallocate(T*, size_t); 
+    void construct(T*, const T&); 
+    void destroy(T*);
+    // ... 
+};
+template<class Out, class T> void uninitialized_fill(Out, Out, const T&); 
+template<class In, class Out> Out uninitialized_copy(In, In, Out);
+```
+
+### 整个Vec类的实现
+
+三个构造函数，注意c++的指针为0意味着空指针
+
+```c++
+template <class T> void Vec<T>::create() {
+    data = avail = limit = 0; 
+}
+template <class T> void Vec<T>::create(size_type n, const T& val) {
+    data = alloc.allocate(n);
+    limit = avail = data + n; 
+    uninitialized_fill(data, limit, val);
+}
+template <class T> void Vec<T>::create(const_iterator i, const_iterator j) {
+    data = alloc.allocate(j - i);
+    limit = avail = uninitialized_copy(i, j, data); 
+}
+```
+
+析构函数
+
+```c++
+template <class T> void Vec<T>::uncreate() {
+    if (data) {
+        // destroy (in reverse order) the elements that were constructed 
+        iterator it = avail;
+        while (it != data)
+            alloc.destroy(--it);
+		// return all the space that was allocated 
+        alloc.deallocate(data, limit - data);
+    }
+    // reset pointers to indicate that the Vec is empty again 
+    data = limit = avail = 0;
+}
+```
+
+push_back中用到的函数
+
+```c++
+template <class T> void Vec<T>::grow() {
+    // when growing, allocate twice as much space as currently in use 
+    size_type new_size = max(2 * (limit - data), ptrdiff_t(1)); // ptrdiff_t是各式转换7u75
+    // allocate new space and copy existing elements to the new space 
+    iterator new_data = alloc.allocate(new_size);
+    iterator new_avail = uninitialized_copy(data, avail, new_data);
+    // return the old space
+    uncreate();
+    // reset pointers to point to the newly allocated space 
+    data = new_data;
+    avail = new_avail;
+    limit = data + new_size;
+}
+// assumes avail points at allocated, but uninitialized space 
+template <class T> void Vec<T>::unchecked_append(const T& val) {
+    alloc.construct(avail++, val); 
+}
+```
+
+# 12. Making class objects act like values
+
+### virtual, final, override
+
+virtual意味着父类指针可以指向子类方法
+
+final的类不能被继承，final的方法不能被重写
+
+纯虚函数：virtual method()=0; 必须被重写
+
+override就是被重写的方法
+
+### 自动类型转换
+
+带有单个参数的constructor就是自动类型转换所调用的函数
+
+如果构造函数不想被用于默认转换，那么可以加上explicit关键词
+
+```c++
+double d = 10;
+double d2;
+d2 = 10; 
+// 下面的函数就是会将string literal转换成Str
+Str(const char* cp) {
+    std::copy(cp, cp + std::strlen(cp), std::back_inserter(data)); 
+}
+
+```
+
+
 

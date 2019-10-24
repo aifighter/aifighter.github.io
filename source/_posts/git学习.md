@@ -88,9 +88,11 @@ git reflog 找到对应的commit号
 git reset {commit-id}
 ```
 
-如何删除一个submodule？
+如何添加和删除一个submodule？
 
 ```
+git submodule add git://github.com/chneukirchen/rack.git rack
+
 git rm the_submodule
 rm -rf .git/modules/the_submodule
 ```
@@ -114,5 +116,11 @@ git push -u origin master
 git tag -a "HelloWorld" -m "Clion initial c++ project."
 git checkout HelloWorld
 git tag -d "HelloWorld"
+```
+
+如何push到远程新分支？
+
+```
+git push origin dev:dev
 ```
 

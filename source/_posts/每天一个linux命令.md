@@ -267,3 +267,19 @@ xargs的作用是将上一条命令的输出传递到下一条命令中，默认
 
 [每天一个linux命令（21）：find命令之xargs](https://www.cnblogs.com/peida/archive/2012/11/15/2770888.html)
 
+### 20191204: 将目录下的bmp文件转换成png
+
+```
+apt-get install imagemagick
+find . -name "*.bmp" | xargs -n 1 bash -c 'convert "$0" "${0%.*}.png"'
+find . -name "*.bmp" | xargs rm
+```
+
+### 20191223: watch
+
+```
+watch -n1 -d nvidia-smi
+```
+
+每隔1秒刷新一次GPU使用情况，`-d`用于高亮diff
+

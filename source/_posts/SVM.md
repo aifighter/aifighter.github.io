@@ -1,6 +1,6 @@
 ---
 title: SVM
-urlname: 3sqc2yre
+urlname: 3sqc2yrf
 comments: true
 mathjax: true
 date: 2020-04-11 17:19:00
@@ -95,6 +95,3 @@ C是用来调节对异常样本的容忍程度，0为完全不能容忍，线性
 
 1. 优化困难
 2. 时间空间复杂度高
-
-
-

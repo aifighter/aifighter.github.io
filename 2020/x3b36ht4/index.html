@@ -4,7 +4,19 @@
 <p>后验概率是根据已经发生的事件得出的概率，比如$P(打雷后下雨)$</p>
 <p>贝叶斯定理就是：</p>
 <p>后验概率=先验概率*条件因子</p>
-<h3 id="2-朴素贝叶斯"><a href="#2-朴素贝叶斯" class="headerlink" title="2. 朴素贝叶斯"></a>2. 朴素贝叶斯</h3><h4 id="2-1-两个假设"><a href="#2-1-两个假设" class="headerlink" title="2.1 两个假设"></a>2.1 两个假设</h4></div><iframe src="/donate/?AliPayQR=/img/AliPayQR.png&amp;WeChatQR=/img/WeChatQR.png&amp;GitHub=null&amp;BTCQR=null&amp;BTCKEY=null&amp;PayPal=null" style="overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;" frameborder="0" scrolling="no"></iframe><div class="tags"><a href="/tags/算法/">算法</a></div><div class="post-nav"><a class="next" href="/2020/3sqc2yrf/">SVM</a></div><div id="container"></div><link rel="stylesheet" type="text/css" href="//unpkg.com/gitalk/dist/gitalk.css?v=0.0.0"><script type="text/javascript" src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js?v=0.0.0"></script><script type="text/javascript" src="//unpkg.com/gitalk/dist/gitalk.min.js?v=0.0.0"></script><script>var gitalk = new Gitalk({
+<h3 id="2-朴素贝叶斯"><a href="#2-朴素贝叶斯" class="headerlink" title="2. 朴素贝叶斯"></a>2. 朴素贝叶斯</h3><h4 id="2-1-两个假设"><a href="#2-1-两个假设" class="headerlink" title="2.1 两个假设"></a>2.1 两个假设</h4><ol>
+<li>特征独立性假设，所有输入特征均独立</li>
+<li>所有样本符合同一个联合概率分布$p(\vec{x},y)$</li>
+</ol>
+<h4 id="2-2-朴素贝叶斯"><a href="#2-2-朴素贝叶斯" class="headerlink" title="2.2 朴素贝叶斯"></a>2.2 朴素贝叶斯</h4><h5 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h5><p>给定数据集$\mathcal{D}={(\vec{x_1}, y_1),(\vec{x_2}, y_2)…(\vec{x_N}, y_N)}, y\in{c_1,c_2,..,c_n}$，得到模型$f(\vec{x})$</p>
+<h5 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h5><p>贝叶斯定理<br>$$<br>p(y|\vec{x})=p(y)\frac{p(\vec{x}|y)}{p(\vec{x})}<br>$$</p>
+<p>根据$\vec{x}$的特征独立性<br>$$<br>p(y|\vec{x})=p(y)\frac{\prod_{i=1}^{n}{p(x_i|y)}}{p(\vec{x})}<br>$$<br>根据全概率公式<br>$$<br>p(y|\vec{x})=p(y)\frac{\prod_{i=1}^{n}{p(x_i|y)}}{\sum_{y’}{p(\vec{x}|y’)p(y’)}}<br>$$<br>那么最终模型为<br>$$<br>f(\vec{x})=\arg\max_{y}p(y)\frac{\prod_{i=1}^{n}{p(x_i|y)}}{\sum_{y’}{p(\vec{x}|y’)p(y’)}}<br>$$</p>
+<h5 id="优化过程"><a href="#优化过程" class="headerlink" title="优化过程"></a>优化过程</h5><p>略去</p>
+<h4 id="2-3-优缺点"><a href="#2-3-优缺点" class="headerlink" title="2.3 优缺点"></a>2.3 优缺点</h4><p>优点：</p>
+<p>性能好，速度快</p>
+<p>缺点：</p>
+<p>假设太强</p>
+</div><iframe src="/donate/?AliPayQR=/img/AliPayQR.png&amp;WeChatQR=/img/WeChatQR.png&amp;GitHub=null&amp;BTCQR=null&amp;BTCKEY=null&amp;PayPal=null" style="overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;" frameborder="0" scrolling="no"></iframe><div class="tags"><a href="/tags/算法/">算法</a></div><div class="post-nav"><a class="next" href="/2020/3sqc2yrf/">SVM</a></div><div id="container"></div><link rel="stylesheet" type="text/css" href="//unpkg.com/gitalk/dist/gitalk.css?v=0.0.0"><script type="text/javascript" src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js?v=0.0.0"></script><script type="text/javascript" src="//unpkg.com/gitalk/dist/gitalk.min.js?v=0.0.0"></script><script>var gitalk = new Gitalk({
   clientID: '92ddf0f85e3c1e71311e',
   clientSecret: '892d455833df92b0fed6a7154015716f809b75ec',
   repo: 'aifighter.github.io',

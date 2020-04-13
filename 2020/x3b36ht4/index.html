@@ -12,10 +12,14 @@
 <h5 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h5><p>贝叶斯定理<br>$$<br>p(y|\vec{x})=p(y)\frac{p(\vec{x}|y)}{p(\vec{x})}<br>$$</p>
 <p>根据$\vec{x}$的特征独立性<br>$$<br>p(y|\vec{x})=p(y)\frac{\prod_{i=1}^{n}{p(x_i|y)}}{p(\vec{x})}<br>$$<br>根据全概率公式<br>$$<br>p(y|\vec{x})=p(y)\frac{\prod_{i=1}^{n}{p(x_i|y)}}{\sum_{y’}{p(\vec{x}|y’)p(y’)}}<br>$$<br>那么最终模型为<br>$$<br>f(\vec{x})=\arg\max_{y}p(y)\frac{\prod_{i=1}^{n}{p(x_i|y)}}{\sum_{y’}{p(\vec{x}|y’)p(y’)}}<br>$$</p>
 <h5 id="优化过程"><a href="#优化过程" class="headerlink" title="优化过程"></a>优化过程</h5><p>略去</p>
-<h4 id="2-3-优缺点"><a href="#2-3-优缺点" class="headerlink" title="2.3 优缺点"></a>2.3 优缺点</h4><p>优点：</p>
+<h4 id="2-3-优缺点"><a href="#2-3-优缺点" class="headerlink" title="2.3 优缺点"></a>2.3 优缺点</h4><ol>
+<li><p>优点：</p>
 <p>性能好，速度快</p>
-<p>缺点：</p>
+</li>
+<li><p>缺点：</p>
 <p>假设太强</p>
+</li>
+</ol>
 </div><iframe src="/donate/?AliPayQR=/img/AliPayQR.png&amp;WeChatQR=/img/WeChatQR.png&amp;GitHub=null&amp;BTCQR=null&amp;BTCKEY=null&amp;PayPal=null" style="overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;" frameborder="0" scrolling="no"></iframe><div class="tags"><a href="/tags/算法/">算法</a></div><div class="post-nav"><a class="next" href="/2020/3sqc2yrf/">SVM</a></div><div id="container"></div><link rel="stylesheet" type="text/css" href="//unpkg.com/gitalk/dist/gitalk.css?v=0.0.0"><script type="text/javascript" src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js?v=0.0.0"></script><script type="text/javascript" src="//unpkg.com/gitalk/dist/gitalk.min.js?v=0.0.0"></script><script>var gitalk = new Gitalk({
   clientID: '92ddf0f85e3c1e71311e',
   clientSecret: '892d455833df92b0fed6a7154015716f809b75ec',

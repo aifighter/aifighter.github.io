@@ -1,5 +1,4 @@
 #!/bin/zsh
-nvm use 13
 python3 resize_images.py
 git add .
 git commit -m 'update static files'

@@ -1,0 +1,173 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="机器学习 人工智能 深度学习 理财 定投 算法"><title>定投收益率怎么算 | 笨笨的爹</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script><link rel="icon" mask sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">定投收益率怎么算</h1><a id="logo" href="/.">笨笨的爹</a><p class="description">笨笨是一只猫，哎，今晚又要打笨笨了</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">定投收益率怎么算</h1><div class="post-meta">May 3, 2019<span> | </span><span class="category"><a href="/categories/理财/">理财</a></span><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span></div><div class="post-content"><p>假设你定投一支基金12个月，每个月投入1000块，一共投入了12000，年末一看，手里的基金净值是12600，那么请问，你定投的年化收益率是多少？为了方便，制表如下：</p>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>金额</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2018-01-01</td>
+<td>-1000</td>
+</tr>
+<tr>
+<td>2018-02-01</td>
+<td>-1000</td>
+</tr>
+<tr>
+<td>….</td>
+<td>….</td>
+</tr>
+<tr>
+<td>2018-11-01</td>
+<td>-1000</td>
+</tr>
+<tr>
+<td>2018-12-01</td>
+<td>-1000</td>
+</tr>
+<tr>
+<td>2019-01-01</td>
+<td>12600</td>
+</tr>
+</tbody>
+</table>
+<p>一般我们会这样算年化收益率</p>
+<p> $\frac{12600-12000}{12000} = 5\%$</p>
+<p>乍一看没什么问题，定投收益率也不高。仔细一想是有问题的，除了2018年1月1日投入的那一笔1000元是完整地产生了一年的收益，其他每一笔投资其实是不到一年的，也就是说12000的投入，平均时长是不到一年的。因此这样计算是错误的。</p>
+<hr>
+<p>正确的计算方法应该是这样的，定投的收益也应该按照日复利来计算，假设日利率为$r_{day}$，然后将每一笔金额（包括收入和支出），都以该日利率算出到结算日的最终金额，最后和应该为0。再通过一些数学方法解出$r_{day}$，计算出对应的年化收益率。</p>
+<p>下面拿个例子演示一下，为了方便，按月定投两期，最终2000变2040：</p>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>金额</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2018-06-01</td>
+<td>-1000</td>
+</tr>
+<tr>
+<td>2018-07-01</td>
+<td>-1000</td>
+</tr>
+<tr>
+<td>2018-08-01</td>
+<td>2040</td>
+</tr>
+</tbody>
+</table>
+<p>对应的方程应该是这样的，都是以日复利来计算的：</p>
+<p>$$(-1000)\times(1+r_{day})^{61} +(-1000)\times(1+r_{day})^{31}+2040=0$$</p>
+<p>通过上式解出日利率$r_{day}$为0.04301%</p>
+<p>那么年化收益率$r_{year}=(1+r_{day})^{365}-1$，为16.9954%</p>
+<hr>
+<p>下面用派森，把这个东西做成一个小工具，来计算一下下面这种情况下的收益率</p>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>金额</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2016-11-15</td>
+<td>-1000</td>
+</tr>
+<tr>
+<td>2016-12-10</td>
+<td>-1000</td>
+</tr>
+<tr>
+<td>2017-01-13</td>
+<td>-1000</td>
+</tr>
+<tr>
+<td>2017-02-25</td>
+<td>-1000</td>
+</tr>
+<tr>
+<td>2017-03-01</td>
+<td>-1000</td>
+</tr>
+<tr>
+<td>2017-04-10</td>
+<td>-1000</td>
+</tr>
+<tr>
+<td>2017-05-15</td>
+<td>-1000</td>
+</tr>
+<tr>
+<td>2017-06-11</td>
+<td>-1000</td>
+</tr>
+<tr>
+<td>2017-07-22</td>
+<td>-1000</td>
+</tr>
+<tr>
+<td>2017-08-19</td>
+<td>-1000</td>
+</tr>
+<tr>
+<td>2017-09-14</td>
+<td>-1000</td>
+</tr>
+<tr>
+<td>2017-10-09</td>
+<td>-1000</td>
+</tr>
+<tr>
+<td>2017-10-15</td>
+<td>13500.17</td>
+</tr>
+</tbody>
+</table>
+<p>首先，录入时间和金额</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">flow = [(<span class="string">'2016-11-15'</span>, <span class="number">-1000</span>), </span><br><span class="line">        (<span class="string">'2016-12-10'</span>, <span class="number">-1000</span>),</span><br><span class="line">        (<span class="string">'2017-01-13'</span>, <span class="number">-1000</span>),</span><br><span class="line">        (<span class="string">'2017-02-25'</span>, <span class="number">-1000</span>),</span><br><span class="line">        (<span class="string">'2017-03-01'</span>, <span class="number">-1000</span>),</span><br><span class="line">        (<span class="string">'2017-04-10'</span>, <span class="number">-1000</span>),</span><br><span class="line">        (<span class="string">'2017-05-15'</span>, <span class="number">-1000</span>),</span><br><span class="line">        (<span class="string">'2017-06-11'</span>, <span class="number">-1000</span>),</span><br><span class="line">        (<span class="string">'2017-07-22'</span>, <span class="number">-1000</span>),</span><br><span class="line">        (<span class="string">'2017-08-19'</span>, <span class="number">-1000</span>),</span><br><span class="line">        (<span class="string">'2017-09-14'</span>, <span class="number">-1000</span>),</span><br><span class="line">        (<span class="string">'2017-10-09'</span>, <span class="number">-1000</span>),</span><br><span class="line">        (<span class="string">'2017-10-15'</span>, <span class="number">13500.17</span>)]</span><br></pre></td></tr></table></figure>
+<p>写一个简单的函数来计算两天之间差了多少时间</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">day_diff</span><span class="params">(end_day, start_day)</span>:</span></span><br><span class="line">    end = datetime.strptime(end_day, <span class="string">'%Y-%m-%d'</span>)</span><br><span class="line">    start = datetime.strptime(start_day, <span class="string">'%Y-%m-%d'</span>)</span><br><span class="line">    <span class="keyword">return</span> (end - start).days</span><br><span class="line">print(day_diff(<span class="string">'2018-12-15'</span>, <span class="string">'2017-10-14'</span>)) <span class="comment">##输出427</span></span><br></pre></td></tr></table></figure>
+<p>下面祭出最终计算定投年化收益率的函数，实现细节不多说了：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">xirr</span><span class="params">(cash_flow)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">function</span><span class="params">(c_f)</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(rate)</span>:</span></span><br><span class="line">            total = <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> c_f:</span><br><span class="line">                start_amount = i[<span class="number">1</span>]</span><br><span class="line">                start_date = i[<span class="number">0</span>]</span><br><span class="line">                end_date = c_f[<span class="number">-1</span>][<span class="number">0</span>]</span><br><span class="line">                total += start_amount * np.power((<span class="number">1</span> + rate), day_diff(end_date, start_date))</span><br><span class="line">            <span class="keyword">return</span> total</span><br><span class="line">        <span class="keyword">return</span> f</span><br><span class="line">    rate_day = optimize.newton(function(cash_flow), x0=<span class="number">0.01</span>)</span><br><span class="line">    rate_year = np.power(<span class="number">1</span> + rate_day, <span class="number">365</span>) - <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> rate_year</span><br></pre></td></tr></table></figure>
+<p>试试结果吧</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xirr(flow)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>0.2831443972022636</p>
+</blockquote>
+<p>年化收益率在28%左右</p>
+<hr>
+<p>我们回头来算一下，开头那个定投1000，一年后12600的例子，计算结果是:</p>
+<p>9.32% !!!</p>
+<p>是不是这样看，这笔定投的收益率是非常高的。</p>
+<hr>
+<p>另外多提一句，为什么函数名我要写成xirr</p>
+<p>实际上在百度百科的解释中：</p>
+<blockquote>
+<p>XIRR反映一组现金流的内部收益率，这些现金流不一定定期发生</p>
+</blockquote>
+<p>这个其实就是我们现在正在进行计算所需要的东西。在excel中也有对应的实现，可以去试一试，计算方法可能与我的算法有一点点出入，但是基本上应该是一样的。</p>
+<hr>
+<p>再再再多提一句，xirr不仅可以计算投资的收益率，还可以计算很多生活中实际的问题，比如，我报名了python培训班，投入了10000块钱，可以记为现金流的-10000，然后在两年中，每个月多赚了500块钱。那么从这个两年时间看，这笔投资的年化收益率是多少？如果时间放宽到10年，那么年化收益率又是多少？</p>
+<hr>
+<p>附上完整python代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> solve, symbols</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> optimize</span><br><span class="line"></span><br><span class="line">flow = [(<span class="string">'2016-11-15'</span>, <span class="number">-1000</span>), </span><br><span class="line">        (<span class="string">'2016-12-10'</span>, <span class="number">-1000</span>),</span><br><span class="line">        (<span class="string">'2017-01-13'</span>, <span class="number">-1000</span>),</span><br><span class="line">        (<span class="string">'2017-02-25'</span>, <span class="number">-1000</span>),</span><br><span class="line">        (<span class="string">'2017-03-01'</span>, <span class="number">-1000</span>),</span><br><span class="line">        (<span class="string">'2017-04-10'</span>, <span class="number">-1000</span>),</span><br><span class="line">        (<span class="string">'2017-05-15'</span>, <span class="number">-1000</span>),</span><br><span class="line">        (<span class="string">'2017-06-11'</span>, <span class="number">-1000</span>),</span><br><span class="line">        (<span class="string">'2017-07-22'</span>, <span class="number">-1000</span>),</span><br><span class="line">        (<span class="string">'2017-08-19'</span>, <span class="number">-1000</span>),</span><br><span class="line">        (<span class="string">'2017-09-14'</span>, <span class="number">-1000</span>),</span><br><span class="line">        (<span class="string">'2017-10-09'</span>, <span class="number">-1000</span>),</span><br><span class="line">        (<span class="string">'2017-10-15'</span>, <span class="number">13500.17</span>)]</span><br><span class="line">        </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">day_diff</span><span class="params">(end_day, start_day)</span>:</span></span><br><span class="line">    end = datetime.strptime(end_day, <span class="string">'%Y-%m-%d'</span>)</span><br><span class="line">    start = datetime.strptime(start_day, <span class="string">'%Y-%m-%d'</span>)</span><br><span class="line">    <span class="keyword">return</span> (end - start).days</span><br><span class="line">print(day_diff(<span class="string">'2018-12-15'</span>, <span class="string">'2017-10-14'</span>))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">xirr</span><span class="params">(cash_flow)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">function</span><span class="params">(c_f)</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(rate)</span>:</span></span><br><span class="line">            total = <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> c_f:</span><br><span class="line">                start_amount = i[<span class="number">1</span>]</span><br><span class="line">                start_date = i[<span class="number">0</span>]</span><br><span class="line">                end_date = c_f[<span class="number">-1</span>][<span class="number">0</span>]</span><br><span class="line">                total += start_amount * np.power((<span class="number">1</span> + rate), day_diff(end_date, start_date))</span><br><span class="line">            <span class="keyword">return</span> total</span><br><span class="line">        <span class="keyword">return</span> f</span><br><span class="line">    rate_day = optimize.newton(function(cash_flow), x0=<span class="number">0.01</span>)</span><br><span class="line">    rate_year = np.power(<span class="number">1</span> + rate_day, <span class="number">365</span>) - <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> rate_year</span><br><span class="line"></span><br><span class="line">print(xirr(flow))</span><br></pre></td></tr></table></figure>
+</div><iframe src="/donate/?AliPayQR=/img/AliPayQR.png&amp;WeChatQR=/img/WeChatQR.png&amp;GitHub=null&amp;BTCQR=null&amp;BTCKEY=null&amp;PayPal=null" style="overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;" frameborder="0" scrolling="no"></iframe><div class="tags"><a href="/tags/理财/">理财</a></div><div class="post-nav"><a class="pre" href="/2019/2heucsdf/">看懂股票的两张表和五个重要指标</a><a class="next" href="/2019/pss4oy52/">余额宝七日年化利率怎么算</a></div><div id="container"></div><link rel="stylesheet" type="text/css" href="//unpkg.com/gitalk/dist/gitalk.css?v=0.0.0"><script type="text/javascript" src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js?v=0.0.0"></script><script type="text/javascript" src="//unpkg.com/gitalk/dist/gitalk.min.js?v=0.0.0"></script><script>var gitalk = new Gitalk({
+  clientID: '92ddf0f85e3c1e71311e',
+  clientSecret: '892d455833df92b0fed6a7154015716f809b75ec',
+  repo: 'aifighter.github.io',
+  owner: 'aifighter',
+  admin: ['aifighter'],
+  id: md5(location.pathname),
+  distractionFreeMode: false
+})
+gitalk.render('container')
+</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/开发/">开发</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/摄影/">摄影</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数学/">数学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/理财/">理财</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/C/" style="font-size: 15px;">C++</a> <a href="/tags/深度学习/" style="font-size: 15px;">深度学习</a> <a href="/tags/算法/" style="font-size: 15px;">算法</a> <a href="/tags/预处理/" style="font-size: 15px;">预处理</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/命令行/" style="font-size: 15px;">命令行</a> <a href="/tags/数值分析/" style="font-size: 15px;">数值分析</a> <a href="/tags/信息论/" style="font-size: 15px;">信息论</a> <a href="/tags/理财/" style="font-size: 15px;">理财</a> <a href="/tags/线性代数/" style="font-size: 15px;">线性代数</a> <a href="/tags/摄影/" style="font-size: 15px;">摄影</a> <a href="/tags/游记/" style="font-size: 15px;">游记</a> <a href="/tags/概率与统计/" style="font-size: 15px;">概率与统计</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/53muxri6/">忙里偷闲的云南婚假</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/ke5yi4pm/">咔图摄影-人像篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/mj4i6ny6/">咔图摄影-色彩光线篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/fefpfmh5/">我眼中的银行</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/6sg5fz21/">咔图摄影-构图篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/stb1m75h/">咔图摄影-基础篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/rhvg9iwb/">聚类的评价指标和方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/5h5youv9/">决策树RF与GBDT</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/aa7ow6og/">集成学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/x3b36ht4/">贝叶斯定理与朴素贝叶斯</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://www.jianshu.com/u/1cd34c54fc09" title="1. 简书主页" target="_blank">1. 简书主页</a><ul></ul><a href="https://github.com/aifighter" title="2. Github主页" target="_blank">2. Github主页</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2021 <a href="/." rel="nofollow">笨笨的爹.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.2/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.2/jquery.fancybox.min.css"><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+</script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML" async></script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

@@ -79,6 +79,6 @@ theme: maupassant-hexo
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/aifighter/aifighter.github.io
+  repo: git@github.com:aifighter/aifighter.github.io
   branch: master
   message: 'deploy on master'

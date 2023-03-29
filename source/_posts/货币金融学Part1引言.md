@@ -1,5 +1,5 @@
 ---
-title: 货币金融学读书笔记Part1: Introduction
+title: 货币金融学读书笔记Part1引言
 urlname: y4wbsi1d
 comments: true
 mathjax: true

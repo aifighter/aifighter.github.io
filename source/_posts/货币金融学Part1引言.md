@@ -8,7 +8,7 @@ categories:
 - 金融
 tags:
 - 金融
-description: 学习经典教材货币金融学所做的读书笔记，作者Mishkins。第一部分，引言。
+description: 学习经典教材货币金融学所做的读书笔记，作者Mishkins。第一部分：Introduction
 
 ---
 

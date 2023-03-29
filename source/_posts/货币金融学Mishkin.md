@@ -1,5 +1,5 @@
 ---
-title: 货币金融学读书笔记
+title: 货币金融学读书笔记Part1: Introduction
 urlname: y4wbsi1d
 comments: true
 mathjax: true
@@ -8,11 +8,13 @@ categories:
 - 金融
 tags:
 - 金融
-description: 经典教材货币金融学作者Mishkins读书笔记
+description: 学习经典教材货币金融学所做的读书笔记，作者Mishkins。第一部分，引言。
 
 ---
 
-## 第一章：Why study money, banking and financial markets
+# 第一部分: Introduction
+
+## 第一章: Why study money, banking and financial markets
 
 
 
@@ -48,7 +50,7 @@ description: 经典教材货币金融学作者Mishkins读书笔记
 
    Gross Domestic Product(国内生产总值) = Aggregate output = Aggregate income
 
-   注意GDP不包括：
+   注意GDP不包括:
 
    1. 二手交易商品(如世界名画, 股票债券等)
    2. 生产的中间原料(因为已经包括在最终产品中了)
@@ -59,9 +61,9 @@ description: 经典教材货币金融学作者Mishkins读书笔记
 
 3. Aggregate Price Level 总体价格指数
 
-   1. CPI(consumer price index)：一个普通城市家庭购买的一系列产品的价格, 也是以某年为基准100
-   2. GDP deflator：nominal GDP / real GDP * 100, 也是以某年为基准100
-   3. PCE deflator：类似b, 区别是使用PCE(personal consumer expenditures)
+   1. CPI(consumer price index): 一个普通城市家庭购买的一系列产品的价格, 也是以某年为基准100
+   2. GDP deflator: nominal GDP / real GDP * 100, 也是以某年为基准100
+   3. PCE deflator: 类似b, 区别是使用PCE(personal consumer expenditures)
 
    PCE和CPI很类似, 覆盖范围和计算方法略有不同
 
@@ -75,7 +77,7 @@ description: 经典教材货币金融学作者Mishkins读书笔记
 
    通胀率, 就是Aggregate Price Level的Growth Rate, 一般用CPI. 比如今年CPI是121, 去年是110, 那么通胀是10%
 
-## 第二章：An overview of the financial system
+## 第二章: An overview of the financial system
 
 ### 2.1 Function of Financial Market
 
@@ -85,7 +87,7 @@ description: 经典教材货币金融学作者Mishkins读书笔记
 
 1. Debt markets(债券市场) v.s. Equity markets(股票市场)
 
-   1. 债券分类：short-term(小于1年),  long-term(大于10年), intermediate-term(其他)
+   1. 债券分类: short-term(小于1年),  long-term(大于10年), intermediate-term(其他)
    2. security(证券)是包括debt和equity的, 类似的概念还有stock, debt
 
 2. Primary markets v.s. Secondary markets
@@ -144,7 +146,29 @@ description: 经典教材货币金融学作者Mishkins读书笔记
    4. Hedge Funds 对冲基金
    5. Investment Banks 投行(国内券商)
 
+### 2.7 Regulations
 
+## 第三章: What is money
+
+### 3.1 Meaning of Money
+
+Anything that is generally accepted as payment.
+
+### 3.2 Function of Money
+
+1. Medium of exchange
+2. Unit of account
+3. Store of value
+
+### 3.3 Evolution of Money
+
+没啥特别的, 老生常谈
+
+### 3.4 Measuring Money
+
+M1 = 现金 + 活期存款
+
+M2 = M1 + 定期存款 + 货币基金
 
 
 

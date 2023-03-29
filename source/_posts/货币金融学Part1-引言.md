@@ -1,5 +1,5 @@
 ---
-title: 货币金融学读书笔记Part1引言
+title: 货币金融学Part1-引言
 urlname: y4wbsi1d
 comments: true
 mathjax: true
@@ -11,8 +11,6 @@ tags:
 description: 学习经典教材货币金融学所做的读书笔记，作者Mishkins。第一部分：Introduction
 
 ---
-
-# 第一部分: Introduction
 
 ## 第一章: Why study money, banking and financial markets
 

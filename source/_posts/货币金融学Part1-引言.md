@@ -77,6 +77,8 @@ description: 学习经典教材货币金融学所做的读书笔记，作者Mish
 
 ## 第二章: An overview of the financial system
 
+这一章主要讲了金融系统里面的一些分类, 主要讲了金融市场以及金融中介以及这里面的细分
+
 ### 2.1 Function of Financial Market
 
 一句话总结, 通过金融市场让钱流向更需要钱的地方, 让borrower和lender都变得更好
@@ -147,6 +149,8 @@ description: 学习经典教材货币金融学所做的读书笔记，作者Mish
 ### 2.7 Regulations
 
 ## 第三章: What is money
+
+这一章讲了什么是货币, 最重要的概念是M1和M2, 其他很简单, 是老生常谈
 
 ### 3.1 Meaning of Money
 

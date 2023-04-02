@@ -1,0 +1,87 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="机器学习 人工智能 深度学习 理财 定投 算法"><title>货币金融学Part2-金融市场 | 笨笨的爹</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script><link rel="icon" mask sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">货币金融学Part2-金融市场</h1><a id="logo" href="/.">笨笨的爹</a><p class="description">笨笨是一只猫，哎，今晚又要打笨笨了</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">货币金融学Part2-金融市场</h1><div class="post-meta">Mar 30, 2023<span> | </span><span class="category"><a href="/categories/金融/">金融</a></span><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span></div><div class="post-content"><h2 id="第四章-The-meaning-of-interesting-rates"><a href="#第四章-The-meaning-of-interesting-rates" class="headerlink" title="第四章: The meaning of interesting rates"></a>第四章: The meaning of interesting rates</h2><p>这一章讲了如何计算利率, 最重要的概念是到期年化利率, 另外介绍了四种不同的债券.</p>
+<p>还讲了债券到期收益率和实际持有期间收益率的区别, 主要区别在于市场利率的变化导致债券价格的变化.</p>
+<h3 id="4-1-Measuring-interest-rates"><a href="#4-1-Measuring-interest-rates" class="headerlink" title="4.1 Measuring interest rates"></a>4.1 Measuring interest rates</h3><ol>
+<li><p>Present Value(现值)</p>
+<p>$$PV=\frac{CF}{(1+i)^n}$$</p>
+<p>当前价值(present value) = 未来现金流(cash flow)在当前的折现</p>
+</li>
+<li><p>Yield to Maturity</p>
+<p>到期年化收益率</p>
+</li>
+<li><p>Four types of credit market instruments (四种不同债券)</p>
+<p> face value: 到期之后偿还的那个金额(<strong>注意: </strong>face value不一定等于债券的售价)</p>
+<ol>
+<li><p>simple loan(普通贷款)</p>
+<p>到期一次性付清利息+本金</p>
+<p>yield to maturity = interest rate</p>
+</li>
+<li><p>fixed payment loan (=fully amortized loan) (等额本息贷款)</p>
+</li>
+<li><p>coupon bond(付息债券)</p>
+<ul>
+<li><p>到期之前每年付利息, 到期之后同时偿还本金</p>
+</li>
+<li><p>当face value = 售价时, yield to maturity = interest rate</p>
+</li>
+<li><p>有一种特殊的coupon bond叫做perpetuity(永续债)</p>
+<p>$$i_c=\frac{C}{P_c}$$</p>
+<p>到期年化收益率 = 每年利息 / 售价</p>
+</li>
+</ul>
+</li>
+<li><p>discount bond(折价债券)</p>
+<p>不付利息, 但是售价会比face value低</p>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="4-2-Interest-rates-and-returns"><a href="#4-2-Interest-rates-and-returns" class="headerlink" title="4.2 Interest rates and returns"></a>4.2 Interest rates and returns</h3><ol>
+<li><p>两个公式</p>
+<ul>
+<li><p>$$R=\frac{C}{P_t}+\frac{P_{t+1}-P_t}{P_t}$$</p>
+<p>$R$: rate of return持有期间的收益率 </p>
+<p>$C$: 持有期间的债券付息</p>
+<p>$P_t$: 购买时的债券价格</p>
+<p>$P_{t+1}$: 出售时的债券价格 </p>
+</li>
+<li><p>$$R=i_c+g$$</p>
+<p>$i_c$: current yield 即当期债券收益率</p>
+<p>$g$: rate of capital gain 资本收益率</p>
+</li>
+</ul>
+</li>
+<li><p>一些结论</p>
+<ol>
+<li>利率上升, 债券价格下降, 久期越长的债券, 价格下降越多</li>
+<li>当持有时间&lt;到期时间时, 市场利率上升, 收益下降</li>
+</ol>
+</li>
+</ol>
+<h3 id="4-3-Real-and-nominal-interest-rates"><a href="#4-3-Real-and-nominal-interest-rates" class="headerlink" title="4.3 Real and nominal interest rates"></a>4.3 Real and nominal interest rates</h3><ol>
+<li><p>$$i=r+\pi^e$$</p>
+<p>$i$: nominal interest rate</p>
+<p>$r$: real interest rate</p>
+<p>$\pi^e$: inflation(expected)</p>
+</li>
+</ol>
+<h2 id="第五章-The-behavior-of-interest-rates"><a href="#第五章-The-behavior-of-interest-rates" class="headerlink" title="第五章: The behavior of interest rates"></a>第五章: The behavior of interest rates</h2><h3 id="4-1-Determinants-of-asset-demand"><a href="#4-1-Determinants-of-asset-demand" class="headerlink" title="4.1 Determinants of asset demand"></a>4.1 Determinants of asset demand</h3><ol>
+<li>Wealth(个人的财富), 正相关</li>
+<li>Expected Return(某个产品的预期收益), 正相关</li>
+<li>Risk, 负相关</li>
+<li>Liquidity(流动性), 正相关</li>
+</ol>
+<h3 id="4-2-Supply-and-demand-in-the-bond-market"><a href="#4-2-Supply-and-demand-in-the-bond-market" class="headerlink" title="4.2 Supply and demand in the bond market"></a>4.2 Supply and demand in the bond market</h3><p><a href="/images/货币金融学/债券供需曲线.jpg">债券供需曲线</a></p>
+</div><iframe src="/donate/?AliPayQR=/img/AliPayQR.png&amp;WeChatQR=/img/WeChatQR.png&amp;GitHub=null&amp;BTCQR=null&amp;BTCKEY=null&amp;PayPal=null" style="overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;" frameborder="0" scrolling="no"></iframe><div class="tags"><a href="/tags/金融/">金融</a></div><div class="post-nav"><a class="next" href="/2023/y4wbsi1d/">货币金融学Part1-引言</a></div><div id="container"></div><link rel="stylesheet" type="text/css" href="//unpkg.com/gitalk/dist/gitalk.css?v=0.0.0"><script type="text/javascript" src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js?v=0.0.0"></script><script type="text/javascript" src="//unpkg.com/gitalk/dist/gitalk.min.js?v=0.0.0"></script><script>var gitalk = new Gitalk({
+  clientID: '92ddf0f85e3c1e71311e',
+  clientSecret: '892d455833df92b0fed6a7154015716f809b75ec',
+  repo: 'aifighter.github.io',
+  owner: 'aifighter',
+  admin: ['aifighter'],
+  id: md5(location.pathname),
+  distractionFreeMode: false
+})
+gitalk.render('container')
+</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/开发/">开发</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/摄影/">摄影</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数学/">数学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/理财/">理财</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书/">读书</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/金融/">金融</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/感想/" style="font-size: 15px;">感想</a> <a href="/tags/算法/" style="font-size: 15px;">算法</a> <a href="/tags/C/" style="font-size: 15px;">C++</a> <a href="/tags/预处理/" style="font-size: 15px;">预处理</a> <a href="/tags/深度学习/" style="font-size: 15px;">深度学习</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/命令行/" style="font-size: 15px;">命令行</a> <a href="/tags/摄影/" style="font-size: 15px;">摄影</a> <a href="/tags/数值分析/" style="font-size: 15px;">数值分析</a> <a href="/tags/信息论/" style="font-size: 15px;">信息论</a> <a href="/tags/理财/" style="font-size: 15px;">理财</a> <a href="/tags/线性代数/" style="font-size: 15px;">线性代数</a> <a href="/tags/游记/" style="font-size: 15px;">游记</a> <a href="/tags/读书/" style="font-size: 15px;">读书</a> <a href="/tags/概率与统计/" style="font-size: 15px;">概率与统计</a> <a href="/tags/金融/" style="font-size: 15px;">金融</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2023/um3np0/">货币金融学Part2-金融市场</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/y4wbsi1d/">货币金融学Part1-引言</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/t7pu92dd/">2022年度总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/v5okqvrg/">无人生还读书笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/gesh1qqf/">营救华尔街读书笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/h5l9bqt2/">2021年度总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/ybb0882c/">股票投资指标</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/shtdrlwy/">2020年度总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/53muxri6/">忙里偷闲的云南婚假</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/ke5yi4pm/">咔图摄影-人像篇</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://www.jianshu.com/u/1cd34c54fc09" title="1. 简书主页" target="_blank">1. 简书主页</a><ul></ul><a href="https://github.com/aifighter" title="2. Github主页" target="_blank">2. Github主页</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2023 <a href="/." rel="nofollow">笨笨的爹.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.2/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.2/jquery.fancybox.min.css"><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+</script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML" async></script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

@@ -22,7 +22,7 @@ description: 学习经典教材货币金融学所做的读书笔记，作者Mish
 
 1. Present Value(现值)
 
-   $$PV=\frac{CF}{(1+i)^n}$$
+   $PV=\frac{CF}{(1+i)^n}$
 
    当前价值(present value) = 未来现金流(cash flow)在当前的折现
 
@@ -50,7 +50,7 @@ description: 学习经典教材货币金融学所做的读书笔记，作者Mish
 
       - 有一种特殊的coupon bond叫做perpetuity(永续债)
 
-        $$i_c=\frac{C}{P_c}$$
+        $i_c=\frac{C}{P_c}$
 
         到期年化收益率 = 每年利息 / 售价
 
@@ -63,7 +63,7 @@ description: 学习经典教材货币金融学所做的读书笔记，作者Mish
 
 1. 两个公式
 
-   - $$R=\frac{C}{P_t}+\frac{P_{t+1}-P_t}{P_t}$$
+   - $R=\frac{C}{P_t}+\frac{P_{t+1}-P_t}{P_t}$
 
      $R$: rate of return持有期间的收益率 
 
@@ -73,7 +73,7 @@ description: 学习经典教材货币金融学所做的读书笔记，作者Mish
 
      $P_{t+1}$: 出售时的债券价格 
 
-   - $$R=i_c+g$$
+   - $R=i_c+g$
 
      $i_c$: current yield 即当期债券收益率
 
@@ -85,7 +85,7 @@ description: 学习经典教材货币金融学所做的读书笔记，作者Mish
 
 ### 4.3 Real and nominal interest rates
 
-1. $$i=r+\pi^e$$
+1. $i=r+\pi^e$
 
    $i$: nominal interest rate
 
@@ -95,16 +95,80 @@ description: 学习经典教材货币金融学所做的读书笔记，作者Mish
 
 ## 第五章: The behavior of interest rates
 
-### 4.1 Determinants of asset demand
+### 5.1 Determinants of asset demand
 
 1. Wealth(个人的财富), 正相关
 2. Expected Return(某个产品的预期收益), 正相关
 3. Risk, 负相关
 4. Liquidity(流动性), 正相关
 
-### 4.2 Supply and demand in the bond market
+### 5.2 Supply and demand in the bond market
 
-[债券供需曲线](/images/货币金融学/债券供需曲线.jpg)
+[债券供需曲线图](/images/货币金融学/债券供需曲线.jpg)
 
+### 5.3 Changes in equilibrium interest rates(供需均衡利率)
 
+1. 需求改变因素(需求曲线为图中左上到右下)(其他条件不变)
 
+   1. Wealth: 增, 需求增, 曲线右移(手里钱多了, 借出去点)
+
+   2. Expected interest rate: 增, 需求减, 曲线左移
+
+      预计要加息, 那么债券价格将会跌, 我就不想买了=不想借钱出去
+
+      为什么和4.1的Expected Return是反的呢?因为对于长期债券来说, 预期利率的提升会导致收益的下降!
+
+   3. Expected inflation: 增, 需求减, 曲线左移(通胀高了, 实际利率降低, 不想借出去了)
+
+   4. Risk: 增, 需求减, 曲线左移
+
+   5. Liquidity: 增, 需求增, 曲线右移
+
+2. 供给改变因素(供给曲线为图中左下到右上)(其他条件不变)
+
+   1. Expected investment opportunities: 增, 供给增, 曲线右移(机会多了, 多借点)
+   2. Expected inflation: 增, 供给增, 曲线右移(通胀一高, 实际利率降了, 那还不多借点)
+   3. Government budget deficits: 增, 供给增, 曲线右移(政府赤字, 多借点钱)
+
+3. 实际应用
+
+   1. Fisher Effect: When expected inflation rises, interest rate rises.
+
+      预期通胀高, 供给增加, 需求减少, 债券价格暴跌, 利率上涨
+
+   2. 经济繁荣, 利率上升(这里的结论是模糊的)
+
+      企业更愿意借钱扩张, 供给增加, 手里有钱的人变多, 需求也增加, 但是供给的增加更强, 导致债券价格下跌, 利率上涨
+
+   3. Secular Stagnation(长期停滞)
+
+      社会不进步了, 通胀率也不高, 投资机会也缺乏.
+
+      供给端: 企业不愿意扩张借钱, 导致供给减少, 利率降低
+
+      需求端: 预期通胀降低, 导致需求增多, 利率降低
+
+      因此长期停滞会导致利率降低, 这也是为什么很多发达国家利率很低的原因.
+
+### 5.4&5.5 The liquidity preference framework
+
+1. 流动性偏好框架
+   1. 假设只有两种资产, 一种是money, 一种是bond, 且供需都是平衡的.
+   2. 由于机会成本, bond的利率越高, money的需求越低.
+   3. money的供给完全由the Federal Reserve决定
+2. 需求曲线的移动(其他条件不变):
+   1. 经济繁荣, 收入增加, money的需求整体增加, 曲线右移, 利率升高 (结论明确)
+   2. 物价上涨, money的需求整体增肌, 曲线右移, 利率升高 (和预期通胀略有区别, 物价上涨的影响是永久的)
+3. 供给曲线的移动(其他条件不变):
+   1. money policy的改变, supply越多, 利率越低
+
+[流动性偏好框架](/images/货币金融学/流动性偏好框架.jpg)
+
+### 5.6 Money and interest rate
+
+1. 在流动性偏好框架下, 货币增加, 利率下降 (这是在其他条件不变时, 然而事实并非如此)
+2. 货币增加, 会导致
+   1. 物价上涨, 导致利率上升
+   2. 收入增加, 导致利率上升
+   3. 预期通胀上升, 导致利率上升(和物价上涨有区别, 这个是二阶导)
+3. 在实际应用中, 1和2的效应哪个更强是不确定的. 经验上来说, 往往预期通胀的影响最为凶猛, 但也难以预测

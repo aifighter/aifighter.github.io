@@ -95,6 +95,8 @@ description: 学习经典教材货币金融学所做的读书笔记，作者Mish
 
 ## 第五章: The behavior of interest rates
 
+这一章介绍了利率受哪些因素影响, 使用了两种模型来计算利率, 一种是债券供需模型, 一种是流动性偏好框架.
+
 ### 5.1 Determinants of asset demand
 
 1. Wealth(个人的财富), 正相关

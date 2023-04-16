@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 nvm use 12
 python3 resize_images.py
 git add .

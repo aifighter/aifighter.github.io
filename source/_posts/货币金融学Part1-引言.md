@@ -25,7 +25,11 @@ description: 学习经典教材货币金融学所做的读书笔记，作者Mish
 
 ### 1.2 Financial Institutions
 
-1. Financial Intermediates 金融中介: Banks 主要是银行
+1. Financial Intermediates 金融中介
+   1. Banks
+   2. Mutual funds: 基金
+   3. 其他如保险, 券商等
+
 
 ### 1.3 Money and Monetary Policy 
 

@@ -8,7 +8,7 @@ categories:
 - 金融
 tags:
 - 金融
-description: 学习经典教材货币金融学所做的读书笔记，作者Mishkins。第三部分: Financial Institutions
+description: 学习经典教材货币金融学所做的读书笔记, 作者Mishkins. 第三部分: Financial Institutions
 
 
 ---
@@ -44,7 +44,7 @@ Asymmetric Information(信息不对称)会导致:
 
 ## 第九章: Banking and the management of financial institutions
 
-这一章主要讲了银行的经营，冰哥的书里要详细得多。
+这一章主要讲了银行的经营, 冰哥的书里要详细得多。
 
 ### 9.1 The Bank Balence Sheet
 

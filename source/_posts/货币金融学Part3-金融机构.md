@@ -112,7 +112,7 @@ $EM=\frac{总资产}{资本}$
 
 ## 第十章: Econimoc Analysis of Financial Regulation
 
-这一章首先讲了政府提供的金融安全保护机制会导致信息不对称，反而引起一系列的金融风险。然后讲了八种监管手段。
+这一章讲两块独立的内容。首先讲了政府提供的金融安全保护机制会导致信息不对称，反而引起一系列的金融风险。然后讲了八种监管手段。
 
 ### 10.1 Asymmetric Information
 
@@ -144,4 +144,30 @@ Government safety net
 8. 竞争限制
 
 ## 第十一章: Banking Industry: Structure and Competition
+
+### 11.1 Historical development of the banking system
+
+讲了美国银行业的历史，读过就OK了
+
+### 11.2 Financial innovation and the growth of the "shadow banking system"
+
+讲了历史上的金融创新，其中包括影子银行系统（主要是资产证券化）
+
+- Adjustable-rate mortgage 可调利率房贷
+- Financial derivatives 金融衍生品
+- Bank Credit and Debit Cards 信用卡和借记卡
+- Electronic Banking 指ATM、手机APP等非人工柜台
+- Junk bonds and commercial paper 信息化的进步使得这类市场也发展迅速（垃圾债+短期商业票据市场）
+- Shadow Banking System 影子银行系统，非银金融机构们，主要做资产证券化（securitization）
+- Subprime mortgage market 次级房贷，就是上面的影子银行系统搞的
+- Money market mutual funds 货币基金，避免用户的钱作为存款被要求存款准备金，而且利率高于活期
+-  Sweep accounts 对公账户的，也可以让公司的钱投资一些短期证券，同时减少存款准备金
+
+此外讲了传统银行经营的经营变化
+
+- 负债端：信用成本上升，用户存款比例下降
+- 资产端：竞争力下降，因为上面的那些金融创新抢占了银行的传统信贷市场
+- 银行的应对：配置更高风险的资产，扩大表外业务，做影子银行系统的工作等等
+
+### 11.3 
 
